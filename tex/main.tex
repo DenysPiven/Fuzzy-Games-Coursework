@@ -155,14 +155,14 @@
 \centerline{\textbf{Київ – 2023}}
 
 \section*{Реферат}
-Обсяг роботи 29 сторінок, 1 ілюстрація, 2 таблиці, 15 джерел посилань.
+Обсяг роботи 29 сторінок, 1 ілюстрація, 2 таблиці, 11 джерел посилань.
 Ключові слова: нечітка множина, нечітке число, нечітка матрична гра.
 
 Об'єктом дослідження є ігри з нечіткими параметрами, які знаходяться у центрі уваги дослідників з різних наукових галузей, включаючи економіку, менеджмент, інженерію та інші. 
 
 Предметом роботи є методи розв'язання нечітких матричних ігор.
 
-Метою роботи є розробка методу знаходження значення нечіткої матричної гри.
+Метою роботи є застосування методу Лю та Као для знаходження значення нечіткої матричної гри та його програмна реалізація.
 
 Методи розроблення: Методи теорії нечітких множин та теорії ігор. 
 
@@ -221,7 +221,7 @@
 
 У традиційній прикладній математиці множина розуміється як сукупність елементів, що мають спільну властивість. Наприклад, множина чисел, що не менше заданого числа, множина векторів, сума компонент яких не перевищує одиницю та інше. При цьому для будь-якого елемента розглядаються лише дві можливості: або цей елемент належить до множини, або ні. \cite{Orl}
 
-У теорії нечітких множин  допускається існування елементів, які можуть належати до множини $х$ різним ступенем. Такі множини називаються нечіткими.
+У теорії нечітких множин  допускається існування елементів, які можуть належати до множини з різним ступенем. Такі множини називаються нечіткими.
 
 Поняття нечіткого множини — це спроба математичної формалізації нечіткої інформації з метою її використання при побудові математичних моделей складних систем. В основі цього поняття лежить ідея того, що елементи, які складають дану множину і мають спільну властивість, можуть мати цю властивість в різній мірі, отже, належати до даної множини з різним ступенем. При такому підході висловлювання типу <<елемент $х$ належить даній множині>> втрачає зміст, оскільки потрібно вказати наскільки сильно або з яким ступенем даний елемент належить до даної множини.
 
@@ -290,7 +290,7 @@
 \mu_{A \cap B}(x)=\mu_A(x) \mu_B(x), \quad x \in X.
 \end{equation}
 
-Майже всі відмінності між цими визначеннями проявляються у випадку нечітких множин $A$ та $B$, таких, що $B \subseteq A$, тобто $\mu_B(x) \subseteq \mu_A(x)$ для будь-якого $x \in X$. За першим з цих визначень
+Майже всі відмінності між цими визначеннями проявляються у випадку нечітких множин $A$ та $B$, таких, що $B \subseteq A$, тобто $\mu_B(x) \leq \mu_A(x)$ для будь-якого $x \in X$. За першим з цих визначень
 \begin{equation}
 \mu_{A \cap B}(x)=\mu_B(x), \quad x \in X,
 \end{equation}
@@ -299,7 +299,7 @@
 Корисним може бути наступна властивість нечітких множин:
 \begin{equation}
 \begin{aligned}
-& \operatorname{supp}(A \cup B)=(\operatorname{supp} A) \cup(\operatorname{supp} B)б \\
+& \operatorname{supp}(A \cup B)=(\operatorname{supp} A) \cup(\operatorname{supp} B), \\
 & \operatorname{supp}(A \cap B)=(\operatorname{supp} A) \cap(\operatorname{supp} B).
 \end{aligned}
 \end{equation}
@@ -411,7 +411,7 @@ a_{m 1} & \ldots & a_{m n}
 
 \begin{equation}
 \begin{aligned}
-& G=\left(S^{n}, S^{m}, \tilde{A}\right), \\
+& G=\left(S^{m}, S^{n}, \tilde{A}\right), \\
 & \tilde{A}=\left(\tilde{a}_{i j}\right)_{\substack{1 \leqslant i \leqslant m \\
 1 \leqslant j \leqslant n}}=\left(\begin{array}{llll}
 \tilde{a}_{11} & \ldots & \tilde{a}_{1 n} \\
@@ -426,7 +426,7 @@ a_{m 1} & \ldots & a_{m n}
 \begin{equation}
 \begin{aligned}
 & \operatorname{Max} v, \qquad \qquad \quad \text { Min } w , \\
-& \begin{array}{ll}p^{T} \tilde{A} \, \tilde{\geqslant} \, e w , & \tilde{A} q \,\tilde{\leqslant}\, e w \\e^{T} p=1, \quad  q \geqslant 0 , & e^{T} q=1, \quad q \geqslant 0 .\end{array}
+& \begin{array}{ll}p^{T} \tilde{A} \, \tilde{\geqslant} \, e v , & \tilde{A} q \,\tilde{\leqslant}\, e w \\e^{T} p=1, \quad  p \geqslant 0 , & e^{T} q=1, \quad q \geqslant 0 .\end{array}
 \end{aligned}
 \end{equation}
 
@@ -442,14 +442,14 @@ a_{m 1} & \ldots & a_{m n}
 \begin{equation}
 \begin{aligned}
 \operatorname{Max} & \sum_{j=1}^{n} s_{j} , \\
-& \sum_{j=1}^{n}\left(a_{i j}^{L}+a_{i j}+a_{i j}^{U}\right) s_{j} \geqslant 3-\left(k_{i}^{L}+k_{i}+k_{i}^{U}\right)(1-\beta), \quad i=1, \ldots, m \\
+& \sum_{j=1}^{n}\left(a_{i j}^{L}+a_{i j}+a_{i j}^{U}\right) s_{j} \leqslant 3+\left(k_{i}^{L}+k_{i}+k_{i}^{U}\right)(1-\beta), \quad i=1, \ldots, m \\
 & \beta \in[0,1], \quad s_{j} \geqslant 0, \quad j=1, \ldots, n
 \end{aligned}
 \end{equation}
 де $\tilde{a}_{i j}=\left(a_{i j}^{L}, a_{i j}, a_{i j}^{U}\right), \tilde{t}=\left(t_{j}^{L}, t_{j}, t_{j}^{U}\right)$ і $\tilde{k}=\left(k_{i}^{L}, k_{i}, k_{i}^{U}\right)$ є трикутними нечіткими числами (TFN).
 \subsubsection{Багатоцільовий підхід: модель Лі}
 Лі використовував наступний порядок ранжування TFN. 
-Нехай $\tilde{a}=\left(a^{L}, a, a^{U}\right)$ та $\tilde{b}=\left(b^{L}, a, b^{U}\right)$ -- два TFN.
+Нехай $\tilde{a}=\left(a^{L}, a, a^{U}\right)$ та $\tilde{b}=\left(b^{L}, b, b^{U}\right)$ -- два TFN.
 $
 \text{Тоді } \tilde{a} \,\tilde{\leqslant}\, \tilde{b} \text { якщо } a^{L} \leqslant b^{L}, a \leqslant b \text { та } a^{U}\leqslant b^{U} .
 $
@@ -528,7 +528,7 @@ x^{T} \tilde{A} y \preccurlyeq \tilde{q} \tilde{w},\\ x \in S^{m}, y \in S^{n}
 \begin{aligned}
 &\text{Max } V, \\
 &\text{} \begin{cases}
-\sum_{i=1}^{m} F\left(\tilde{a}_{i j}\right) x_{i} \geqslant V+(1-\gamma) F(\tilde{p}), & j=1,\dots,n, \\
+\sum_{i=1}^{m} F\left(\tilde{a}_{i j}\right) x_{i} \geqslant V-(1-\gamma) F(\tilde{p}), & j=1,\dots,n, \\
 \sum_{i=1}^{m} x_{i}=1, x \geqslant 0, 0 \leqslant \gamma \leqslant 1
 \end{cases}
 \end{aligned}
@@ -547,7 +547,7 @@ y \geqslant 0,
 \end{equation}
 
 \section{ЗАСТОСУВАННЯ ПРИНЦИПУ УЗАГАЛЬНЕННЯ }
-Лю та Као розробляють метод розв'язання для матричних ігор з нечіткими виграшами на основі принципу узагальнення. Розглянемо нечітку матричну гру. Тоді задача для Гравця I (Гравець~II) полягає в тому, щоб знайти оптимальний розв’язок задачі. Використовуючи принцип узагальнення, Лю та Као визначають цінність гри як нечітке число $\tilde{Z}$ з такою функцією належності:
+Лю та Као~\cite{N18} розробляють метод розв'язання для матричних ігор з нечіткими виграшами на основі принципу узагальнення. Розглянемо нечітку матричну гру. Тоді задача для Гравця I (Гравець~II) полягає в тому, щоб знайти оптимальний розв’язок задачі. Використовуючи принцип узагальнення, Лю та Као визначають цінність гри як нечітке число $\tilde{Z}$ з такою функцією належності:
 \begin{equation}
 \mu_{\tilde{Z}}(z)=\operatorname{Sup}_{a_{i j}} \operatorname{Min}\left\{\mu_{\tilde{a}_{i j}}\left(a_{i j}\right), \quad \forall i, j / z=Z(a)\right\} .
 \end{equation}
@@ -606,7 +606,7 @@ y \geqslant 0,
 \mu_{\tilde{z}}(z)=\left\{\begin{array}{ll}
 L(z), & z_{\alpha=0}^{L} \leqslant z \leqslant z_{\alpha=1}^{L}, \\
 1, & z_{\alpha=1}^{L} \leqslant z \leqslant z_{\alpha=1}^{U}, \\
-R(z), & z_{\alpha=1}^{U} \leqslant z \leqslant z_{\alpha=0}^{L} .
+R(z), & z_{\alpha=1}^{U} \leqslant z \leqslant z_{\alpha=0}^{U} .
 \end{array} .\right.
 \end{equation}
 
@@ -652,7 +652,7 @@ Z &= \text{Min u} \\
 \begin{equation}
 \mu_{\tilde{Z}}(z)=\operatorname{Sup}_{a_{i j}} \min \left\{\mu_{\tilde{A}_{i j}}\left(a_{i j}\right), \quad \forall i, j \mid z=Z(\mathbf{a})\right\}
 \end{equation}
-де $Z(\mathbf{a})$ визначено у моделі. Застосування принципу узагальнення до $\tilde{Z}$ можна розглядати як застосування цього принципу узагальнення до $\alpha$-перерізу $\tilde{Z} .^{17}$ У рівнянні задіяно кілька функцій належності. Отримати $\mu_{\tilde{Z}}$ від $\mu_{\tilde{A}{i j}}$ безпосередньо у закритій формі майже неможливо. $\mu{\tilde{Z}}(z)$ - це мінімум тих $\mu_{\tilde{A}{i j}}, \forall i, j$, таких, що $z=Z(\mathbf{a})$. На конкретному рівні можливості $\alpha$, нам потрібно $\mu{\tilde{A}{i j}}\left(a{i j}\right) \geq \alpha$ та принаймні одне $\mu_{\tilde{A}{i j}}\left(a{i j}\right), \forall i, j$, дорівнює $\alpha$, таким чином, що $z=Z(\mathbf{a})$, для задоволення $\mu_{\tilde{Z}}(z)=\alpha$. Щоб знайти функцію належності $\mu_{\tilde{Z}}$, достатньо знайти праву функцію форми та ліву функцію форми $\mu_{\tilde{Z}}$. Це еквівалентно знаходженню верхньої межі $Z_{\alpha}^{\mathrm{U}}$ та нижньої межі $Z_{\alpha}^{\mathrm{L}}$ $\alpha$-перерізів $\widetilde{Z}$. 
+де $Z(\mathbf{a})$ визначено у моделі. Застосування принципу узагальнення до $\tilde{Z}$ можна розглядати як застосування цього принципу узагальнення до $\alpha$-перерізу $\tilde{Z}$. У рівнянні задіяно кілька функцій належності. Отримати $\mu_{\tilde{Z}}$ від $\mu_{\tilde{A}{i j}}$ безпосередньо у закритій формі майже неможливо. $\mu{\tilde{Z}}(z)$ - це мінімум тих $\mu_{\tilde{A}{i j}}, \forall i, j$, таких, що $z=Z(\mathbf{a})$. На конкретному рівні можливості $\alpha$, нам потрібно $\mu{\tilde{A}{i j}}\left(a{i j}\right) \geq \alpha$ та принаймні одне $\mu_{\tilde{A}{i j}}\left(a{i j}\right), \forall i, j$, дорівнює $\alpha$, таким чином, що $z=Z(\mathbf{a})$, для задоволення $\mu_{\tilde{Z}}(z)=\alpha$. Щоб знайти функцію належності $\mu_{\tilde{Z}}$, достатньо знайти праву функцію форми та ліву функцію форми $\mu_{\tilde{Z}}$. Це еквівалентно знаходженню верхньої межі $Z_{\alpha}^{\mathrm{U}}$ та нижньої межі $Z_{\alpha}^{\mathrm{L}}$ $\alpha$-перерізів $\widetilde{Z}$. 
 
 Позначимо $\alpha$-переріз $\tilde{A}_{i j}$ як
 
@@ -843,7 +843,7 @@ y_{j} \geq 0, & \text { для } j=1, \ldots, n.
     \textbf{Таблиця 1.1.} Приклад виграшів гри.
 \end{center}
 
-На основі моделей верхня межа $Z_{\alpha}^{\mathrm{U}}$ та нижня межа $Z_{\alpha}^{\mathrm{L}}$ на різних рівнях $\alpha$ розраховуються відповідно. Таблиця ІІ містить $\alpha$-перерізи гри на 11 різних значеннях $\alpha$: $0,0.1,0.2, \ldots, 1.0$. $\alpha$-переріз $\widetilde{Z}$ відображає ймовірність того, що значення гри з'явиться у пов'язаному діапазоні. Чим більше значення $\alpha$, тим нижчий ступінь невизначеності. Оскільки розподілене значення гри знаходиться в діапазоні, різні $\alpha$-перерізи показують різні інтервали та рівень невизначеності значення гри. У цьому прикладі, хоча значення гри нечітке, його найбільш ймовірне значення знаходиться між $-2.8213$ та $-2.6405$, і неможливо, щоб його значення вийшло за межі діапазону $-3.6105$ та $-1.5959$. 
+На основі моделей верхня межа $Z_{\alpha}^{\mathrm{U}}$ та нижня межа $Z_{\alpha}^{\mathrm{L}}$ на різних рівнях $\alpha$ розраховуються відповідно. Таблиця ІІ містить $\alpha$-перерізи гри на 11 різних значеннях $\alpha$: $0,0.1,0.2, \ldots, 1.0$. $\alpha$-переріз $\widetilde{Z}$ відображає можливість того, що значення гри з'явиться у пов'язаному діапазоні. Чим більше значення $\alpha$, тим нижчий ступінь невизначеності. Оскільки розподілене значення гри знаходиться в діапазоні, різні $\alpha$-перерізи показують різні інтервали та рівень невизначеності значення гри. У цьому прикладі, хоча значення гри нечітке, його найбільш можливе значення знаходиться між $-2.8213$ та $-2.6405$, і неможливо, щоб його значення вийшло за межі діапазону $-3.6105$ та $-1.5959$. 
 
 \begin{center}
 \begin{tabular}{|c|cccccc|}
@@ -872,7 +872,7 @@ $Z_{\alpha}^{\mathrm{L}}$ & $-3.1375$ & $-3.0585$ & $-2.9795$ & $-2.9005$ & $-2.
 
 \subsection{Програмна реалізація}
 
-Програма спрямована на розв'язання нечітких матричних ігор з використанням реалізації на мові Java. Основною метою є розв'язання задач лінійного програмування з нечіткими числами. Для досягнення цієї мети ми використовуємо можливості оптимізації бібліотеки Apache Commons Math.
+Програма спрямована на розв'язання нечітких матричних ігор з використанням реалізації на мові Java. Основною метою є розв'язання задач лінійного програмування з нечіткими числами. Для досягнення цієї мети ми використовуємо можливості оптимізації бібліотеки Apache Commons Math. Оскільки ціна матричної гри не спадає при збільшенні будь-якого елемента матриці, у програмі $Z_{\alpha}^{\mathrm{U}}$ та $Z_{\alpha}^{\mathrm{L}}$ обчислюються як ціни звичайних матричних ігор з матрицями верхніх та нижніх меж $\alpha$-перерізів виграшів відповідно; це дає ті самі значення, що й наведені вище задачі лінійного програмування.
 
 \subsubsection*{Встановлення}
 \begin{itemize}
@@ -915,9 +915,7 @@ $Z_{\alpha}^{\mathrm{L}}$ & $-3.1375$ & $-3.0585$ & $-2.9795$ & $-2.9005$ & $-2.
 
 \bibitem{Larbani} Larbani, M.: Non cooperative fuzzy games in normal form: A survey.
 
-\bibitem{N18} Shiang-Tai L., Chiang K.: Solution of Fuzzy Matrix Games: An Application of the Extension Principle
-
-\bibitem{Cite3} J. Koshal, A. Nedic, and U. V. Shanbhag, “Distributed algorithms for aggregative games on graphs,” Operations Research, vol. 64, no. 3, pp. 680–704, 2016.
+\bibitem{N18} Shiang-Tai L., Chiang K.: Solution of Fuzzy Matrix Games: An Application of the Extension Principle. International Journal of Intelligent Systems, 2007.
 
 \bibitem{Owen} Owen, G. (1974). Cooperative games using fuzzy sets. Theory and Decision, 4(4), 307-312.
 
@@ -927,24 +925,13 @@ $Z_{\alpha}^{\mathrm{L}}$ & $-3.1375$ & $-3.0585$ & $-2.9795$ & $-2.9005$ & $-2.
 
 \bibitem{Arfi} Arfi, B. (2009). Linguistic fuzzy-logic games: Modeling social interactions in social sciences. Journal of Economic Interaction and Coordination, 4(1), 1-20.
 
-\bibitem{Shapley} Shapley, L. S. (1953). A value for n-person games. Annals of Mathematics, 28(1), 307-317.
+\bibitem{Shapley} Shapley, L. S. (1953). A value for n-person games. In: Contributions to the Theory of Games II, Annals of Mathematics Studies 28, 307-317.
 
 \bibitem{Nash} Nash, J. F. (1950). Equilibrium points in n-person games. Proceedings of the National Academy of Sciences, 36(1), 48-49.
 
 \bibitem{Binmore} Binmore, K. (2007). Game theory: A very short introduction. Oxford, England: Oxford University Press.
 
-\bibitem{Article1} C.~De~Persis, S.~Grammatico <<Continuous-time integral dynamics for aggregative game equilibrium seeking>> [Електронний ресурс]: arXiv preprint arXiv:1803.10448v1, 2018
 
-URL: \url{https://arxiv.org/pdf/1803.10448.pdf}
-
-\bibitem{Cite1} R.~Zhu, J.~Zhang, K.~You, and T.~Basar, “Asynchronous networked
-aggregative games” [Електронний ресурс]: arXiv preprint arXiv:2101.08973, 2021.
-
-URL: \url{https://arxiv.org/pdf/2101.08973.pdf}
-
-\bibitem{Article2} R.~Zhu, J~Zhang and K~You <<Networked Aggregative Games with Linear Convergence>> [Електронний ресурс]: arXiv preprint arXiv:2105.05465v1, 2021
-
-URL: \url{https://arxiv.org/pdf/2105.05465.pdf}
 }
 \end{thebibliography}
 
