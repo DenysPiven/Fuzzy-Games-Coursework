@@ -1,0 +1,1297 @@
+\documentclass[14pt, a4paper, oneside]{extarticle}
+
+% Використання української мови
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+
+\addto\captionsukrainian{\renewcommand{\refname}{ЛІТЕРАТУРА}}
+
+\usepackage{titlesec}
+
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand{\cftsecpresnum}{РОЗДІЛ~}
+\newlength{\mylen}
+\settowidth{\mylen}{\cftsecpresnum}
+\addtolength{\cftsecnumwidth}{\mylen}
+
+\newcommand{\sectionbreak}{\clearpage}
+
+% Задання розмірів полів
+\usepackage{geometry}
+\geometry{
+  top=20mm,
+  bottom=20mm,
+  left=30mm,
+  right=10mm
+}
+
+% Задання міжрядкового інтервалу 1.5
+\usepackage{setspace}
+\onehalfspacing
+
+% Задання абзацного відступу 1.27 см
+\usepackage{indentfirst}
+\setlength{\parindent}{1.27cm}
+
+\usepackage{setspace,amsmath}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{tikz}
+
+\usepackage{chngcntr}
+\numberwithin{equation}{section}
+\usepackage{graphicx}
+\graphicspath{}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=false,
+  linkcolor=blue,
+  filecolor=magenta,      
+  urlcolor=cyan,
+  pdftitle={Applying the Generalization Principle to Solve Fuzzy Matrix Games}
+}
+
+\newcommand{\geqslant}{\geq}
+\newcommand{\leqslant}{\leq}
+\newcommand{\preccurlyeq}{\preceq}
+\newcommand{\succcurlyeq}{\succeq}
+
+\newcommand{\addition}{\section{ДОДАТОК}}
+
+\usepackage{titlesec}
+
+% Заголовки рівня \section
+\titleformat{\section}
+  {\normalfont\fontsize{14}{17}\bfseries\filcenter\MakeUppercase}
+  {\thesection}
+  {1em}
+  {}
+
+% Заголовки рівня \subsection
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{17}\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+
+% Заголовки рівня \subsubsection
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{14}{17}\bfseries}
+  {\thesubsubsection}
+  {1em}
+  {}
+
+% Відстань між заголовками та текстом
+\titlespacing*{\section}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% Задання стилю нумерації для основного тексту
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Відключення нумерації на титульному аркуші
+\pagenumbering{arabic}
+\thispagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+\textbf{КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ\\ ІМЕНІ ТАРАСА ШЕВЧЕНКА}\\ 
+Факультет комп’ютерних наук та кібернетики\\
+Кафедра системного аналізу та теорії прийняття рішень\\
+
+\vfill
+
+\textbf{Курсова робота}\\
+за спеціальністю 124 Системний аналіз\\
+на тему:\\
+\textbf{ЗАСТОСУВАННЯ ПРИНЦИПУ УЗАГАЛЬНЕННЯ ДЛЯ РОЗВ'ЯЗАННЯ НЕЧІТКОЇ МАТРИЧНОЇ ГРИ}\\
+
+\end{center}
+\vfill
+
+\begin{flushleft}
+Виконав студент 1-го курсу магістратури\\
+Півень Денис Миколайович \hfill \underline{\hspace{3cm}}\\
+\end{flushleft}
+
+\begin{flushleft}
+Науковий керівник:\\
+професор, доктор фіз.-мат.наук.\\
+Мащенко Сергій Олегович \hfill \underline{\hspace{3cm}}
+\end{flushleft}
+
+\vfill
+
+\begin{multicols}{2}
+  % Тут буде текст для лівої колонки
+  \hspace{1mm}
+
+  \columnbreak
+    Засвідчую, що в цій роботі немає запозичень з праць інших авторів без відповідних посилань.
+    \\
+    Студент \hfill \underline{\hspace{3cm}}
+  
+\end{multicols}
+
+\vfill
+
+\centerline{\textbf{Київ – 2023}}
+
+\section*{Реферат}
+Обсяг роботи 29 сторінок, 1 ілюстрація, 2 таблиці, 15 джерел посилань.
+Ключові слова: нечітка множина, нечітке число, нечітка матрична гра.
+
+Об'єктом дослідження є ігри з нечіткими параметрами, які знаходяться у центрі уваги дослідників з різних наукових галузей, включаючи економіку, менеджмент, інженерію та інші. 
+
+Предметом роботи є методи розв'язання нечітких матричних ігор.
+
+Метою роботи є розробка методу знаходження значення нечіткої матричної гри.
+
+Методи розроблення: Методи теорії нечітких множин та теорії ігор. 
+
+Інструменти розроблення: безкоштовне, інтегроване середовище розробки IntelliJ IDEA для студентів, бібліотека Apache Commons Math для розв'язання систем лінійних нерівностей за допомогою симплекс методу, мова програмування Java.
+
+Результати роботи: було проведено загальний огляд методів та підходів до розв'язання нечітких матричних ігор, проаналізовано їхні переваги та недоліки. Розроблено програмний продукт <<Застосунок для розв'язання нечітких матричних ігор на основі принципу узагальнення>>.
+Даний програмний продукт сприяє ефективному розв'язанню задач у сфері нечітких матричних ігор та може бути корисним для науковців, аналітиків та інших фахівців, що працюють у даній галузі.
+
+
+
+\clearpage
+\renewcommand\cftsecdotsep{\cftdot}
+\cftsetpnumwidth{9pt}
+
+% Задання форматування назви змісту
+\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries\MakeUppercase}
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+% Задання форматування для рівнів заголовків
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecpagefont}{\normalfont}
+
+% Задання відстані між рядками
+\renewcommand{\cftbeforesecskip}{0.5ex}
+\renewcommand{\cftbeforesubsecskip}{0.5ex}
+\renewcommand{\cftbeforesubsubsecskip}{0.5ex}
+
+\tableofcontents
+
+\thispagestyle{empty}
+
+
+\section*{ВСТУП}
+\addcontentsline{toc}{section}{ВСТУП}
+Теорія ігор є методом аналізу взаємодії раціональних агентів, які діють стратегічно, з витоками, що сягають XVIII століття. Ця теорія була формалізована в основоположній книзі «Теорія ігор та економічної поведінки» фон Неймана і Моргенштерна в 1944 році. Відтоді теорія ігор швидко розвивалася та отримала широке визнання, застосовуючись в різних сферах, таких як конкуренція, голосування, аукціони, дослідження та розробки, картельна поведінка, штучний інтелект, електронна комерція та біологія. Ігри можна розділити на дві категорії: кооперативні та некооперативні. У кооперативних іграх гравці зосереджені на формуванні коаліцій, тоді як у некооперативних іграх вони зосереджені на виборі стратегій. Ця робота стосується некооперативних ігор у звичайній (або стратегічній) формі.
+
+Теорія ігор традиційно спирається на використання чіткої логіки та припущення, що гравці приймають цілком раціональні рішення. Однак насправді люди часто не роблять повністю раціонального вибору, натомість дотримуючись принципу «обмеженої раціональності». Нечітка логіка, яка дозволяє включати неточну інформацію, може бути використана для кращого представлення цього типу поведінки в теорії ігор. Крім того, традиційна теорія ігор припускає, що всі гравці мають повне знання інформації та результатів гри, що часто не так у сценаріях реального світу. Нечіткі набори, які можуть представляти неточно визначені ситуації, можна використовувати для кращого моделювання цього типу невизначеності в іграх реального світу.
+
+Використання нечітких множин у теорії ігор можна простежити до Обена в 1974 році, який першим представив їх у кооперативній теорії ігор \cite{Owen}. Пізніше це було узагальнено Бутнаріу в 1978 році, який представив нечіткі набори в некооперативних іграх \cite{Butnariu}. Цю концепцію далі розвинули Біллот та інші дослідники, зокрема Баклі, який використовував принципи прийняття рішень у нечіткому середовищі, Гаразік і Круз, які використовували підхід, заснований на нечітких контролерах, і Кампос, який вивчав некооперативні ігри з нечіткими виграшами \cite{Buckley}. Нещодавно Арфі зробив значний внесок, представивши лінгвістичні нечіткі логічні ігри та підкресливши їх потенціал для використання в соціальних науках \cite{Arfi}.
+
+
+\section{ОГЛЯД З ТЕОРІЇ ІГОР З НЕЧІТКИМИ ПАРАМЕТРАМИ}
+Теорія ігор з нечіткими параметрами є узагальненням класичної теорії ігор, яке дозволяє враховувати нечіткість параметрів, що до неї входять, таких як виграш, ймовірності або стратегії гравців.
+
+Однією з основних ідей цієї теорії є використання теорії нечітких множин для представлення нечіткості параметрів гри. У зв'язку з цим, в теорії ігор з нечіткими параметрами застосовуються різні види нечітких множин, такі як трикутні нечіткі множини, трапецієподібні нечіткі множини та інші.
+
+Основні поняття теорії ігор з нечіткими параметрами включають нечітку виграшну функцію, нечітку стратегію гравця, нечітку матрицю виграшів та нечітку оптимальну стратегію гравця.
+
+Теорія ігор з нечіткими параметрами має важливі застосування в різних галузях, таких як економіка, управління та прийняття рішень. Вона дозволяє аналізувати ігри в умовах невизначеності та недостатньої інформації, що дозволяє приймати більш обґрунтовані рішення в таких умовах.
+
+\subsection{Нечіткі множини}
+
+У традиційній прикладній математиці множина розуміється як сукупність елементів, що мають спільну властивість. Наприклад, множина чисел, що не менше заданого числа, множина векторів, сума компонент яких не перевищує одиницю та інше. При цьому для будь-якого елемента розглядаються лише дві можливості: або цей елемент належить до множини, або ні. \cite{Orl}
+
+У теорії нечітких множин  допускається існування елементів, які можуть належати до множини $х$ різним ступенем. Такі множини називаються нечіткими.
+
+Поняття нечіткого множини — це спроба математичної формалізації нечіткої інформації з метою її використання при побудові математичних моделей складних систем. В основі цього поняття лежить ідея того, що елементи, які складають дану множину і мають спільну властивість, можуть мати цю властивість в різній мірі, отже, належати до даної множини з різним ступенем. При такому підході висловлювання типу <<елемент $х$ належить даній множині>> втрачає зміст, оскільки потрібно вказати наскільки сильно або з яким ступенем даний елемент належить до даної множини.
+
+Концепція нечіткої множини — це математичний підхід до формалізації нечіткої або неточної інформації, де елементи в множині можуть мати різні ступені належності, представленої функцією належності, яка відображається на інтервал [0,1].
+
+Нечітка множина C у множині X визначається як сукупність пар виду (x, µ(x)), де x належить X, а µ(x) є функцією, яка призначає ступінь належності елементу x в C. Таким чином, нечітка множина є ширшим поняттям, ніж звичайна, в тому сенсі, що функція належності нечіткої множини може бути, взагалі будь-якою функцією або навіть довільним відображенням.
+
+Нечітка множина називається \textit{порожньою}, якщо її функція належності дорівнює нулю на всій множині X, тобто
+\begin{equation}
+    \mu_\emptyset (x) = 0, \forall x \in X,
+\end{equation}
+
+Універсальну множину X також можна описати функцією належності виду
+\begin{equation}
+\mu_X (x) = 1, \forall x \in X.
+\end{equation}
+\textit{Носієм} нечіткої множини A (позначається supp A) з функцією належності $\mu_A (x)$ називається множина (у звичайному сенсі) виду
+\begin{equation}
+\operatorname{supp} A=\left\{x \mid x \in X, \mu_A(x)>0\right\} .
+\end{equation}
+Нечітка множина А називається \textit{нормальною}, якщо виконується рівність
+\begin{equation}
+\sup _{x \in X} \mu_A(x)=1
+\end{equation}
+В іншому випадку нечітка множина називається \textit{субнормальною}.
+
+Нехай $A$ та $B$ -- нечіткі множини в $X$, а $\mu_{A}(x)$ та $\mu_B(x)$ -- їхні функції належності відповідно. Кажуть, що $A$ \textit{містить у собі} $B$ (тобто $B \subseteq A$ ), якщо для будь-якого $x \in X$ виконується нерівність $\mu_B(x) \leq \mu_A(x)$. Множини $A$ та $B$ \textit{співпадають}, якщо $\mu_B(x)=\mu_A(x)$ при будь-якому $x \in X$. Якщо нечіткі множини $A$ та $B$ такі, що $B \subseteq A$, то
+\begin{equation}
+\operatorname{supp} B \subseteq \operatorname{supp} A\end{equation}
+
+\subsubsection{Операції над нечіткими множинами}
+Операції над нечіткими множинами, наприклад, об'єднання та перетин, можна визначити різними способами. Нижче наведено декілька таких визначень. Вибір конкретного з них залежить від змісту, який вкладається в відповідну операцію в рамках задачі, що розглядається.
+
+При введенні операцій над нечіткими множинами слід пам'ятати, що клас нечітких множин охоплює і множини у звичайному розумінні. Тому введення визначень в окремому випадку звичайних множин є необхідним у теорії множин. Звичайно, це не стосується до технічних питань, пов'язаних з операціями над нечіткими множинами які для звичайних множин не мають сенсу, наприклад, операції концентрування, розтягування та опуклої комбінації.
+
+\textit{Операція об'єднання нечітких множин} $A$ та $B$ в $X$ визначається як нечітка множина $A \cup B$ з функцією належності вигляду:
+\begin{equation}
+\mu_{A \cup B}(x)=\max \left\{\mu_A(x), \mu_B(x)\right\}, \quad x \in X
+\end{equation}
+
+Якщо $\{A_y\}$ - скінчене або нескінчене сімейство нечітких множин з функціями належності $\mu_{A_y}(x, y)$, де $y \in Y$ - параметр сімейства, то об'єднання $~C~=~\bigcup_Y A_y$ множин цього сімейства є нечіткою множиною з функцією належності вигляду
+\begin{equation}
+\mu_C(x)=\sup _{y \in Y} \mu_{A_y}(x, y), \quad x \in X
+\end{equation}
+
+\textit{Об'єднання нечітких множин} $A$ і $B$ в $X$ можна визначити за допомогою алгебраїчної суми їх функцій належності:
+\begin{equation}
+\mu_{A \cup B}(x)=\left\{\begin{array}{cc}
+1 & \text { при } \mu_A(x)+\mu_B(x) \geq 1, \\
+\mu_A(x)+\mu_B(x) & \text { інакше. }
+\end{array}\right.
+\end{equation}
+
+Перетином нечітких множин $A$ та $B$ в $X$ називається нечітка множина $A \cap B$ з функцією належності виду
+\begin{equation}
+\mu_{A \cap B}(x)=\min \left\{\mu_A(x), \mu_B(x)\right\}, \quad x \in X .
+\end{equation}
+
+Якщо ${A_y}$ -- нескінчене чи скінчене сімейство нечітких множин з функціями належності $\mu_{A_y}(x, y)$, де $y \in Y$ -- параметр сімейства, то перетином $C~=~\bigcap_{y} A_y$ множин цього сімейства є нечітка множина з функцією належності виду
+\begin{equation}
+\mu_C(x)=\inf _{y \in Y} \mu_{A_y}(x, y), \quad x \in X .
+\end{equation}
+
+Ще один спосіб визначення перетину нечітких множин $A$ та $B$ -- використання алгебраїчного добутку їх функцій належності:
+\begin{equation}
+\mu_{A \cap B}(x)=\mu_A(x) \mu_B(x), \quad x \in X.
+\end{equation}
+
+Майже всі відмінності між цими визначеннями проявляються у випадку нечітких множин $A$ та $B$, таких, що $B \subseteq A$, тобто $\mu_B(x) \subseteq \mu_A(x)$ для будь-якого $x \in X$. За першим з цих визначень
+\begin{equation}
+\mu_{A \cap B}(x)=\mu_B(x), \quad x \in X,
+\end{equation}
+тобто функція належності множини $A$ фактично не бере участь у цьому визначенні у відповідній функції належності, тоді як за визначенням добутку функція належності завжди містить функції належності обох множин.
+
+Корисним може бути наступна властивість нечітких множин:
+\begin{equation}
+\begin{aligned}
+& \operatorname{supp}(A \cup B)=(\operatorname{supp} A) \cup(\operatorname{supp} B)б \\
+& \operatorname{supp}(A \cap B)=(\operatorname{supp} A) \cap(\operatorname{supp} B).
+\end{aligned}
+\end{equation}
+Легко перевірити, що ці рівності виконуються для будь-якого з наведених вище визначень об'єднання та перетину.
+
+\textit{Доповненням нечіткої множини} $A$ в $X$ є нечітка множина $A^{\prime}$ з функцією належності, визначеною наступним чином:
+\begin{equation}
+\mu_{A^{\prime}}(x)=1-\mu_A(x), \quad x \in X .
+\end{equation}
+Цікаво, що з таким визначенням доповнення, взагалі кажучи, $A \cap A^{\prime} \neq \emptyset$ (це відрізняє його від стандартних множин).
+
+\textit{Різницею нечітких множин} $A$ і $B$ в $X$ називається нечітка множина $A \backslash B$ з функцією належності виду
+\begin{equation}\mu_{A \backslash B}(x)=
+\begin{cases}
+\mu_A(x)-\mu_B(x) & \text { при } \mu_A(x) \geq \mu_B(x),\\
+0 & \text { інакше. }
+\end{cases}\end{equation}
+Зауважимо, що приведене вище визначення доповнення нечіткої множини випливає з даного визначення.
+
+\textit{Декартовим добутком нечітких множин} $A_1, \ldots, A_n$ у $X_1, \ldots, X_n$, відповідно, називається нечітка множина $A$ у декартовому добутку $X=X_1 \times \ldots \times X_n$ з функцією належності виду:
+\begin{equation}
+\begin{aligned}
+\mu_A(x) & =\min \left\{\mu_{A_1}\left(x_1\right), \ldots, \mu_{A_n}\left(x_n\right)\right\}, \\
+x & =\left(x_1, \ldots, x_n\right) \in X .
+\end{aligned}
+\end{equation}
+
+\textit{Опуклою комбінацією нечітких множин} $A_1, \ldots, A_n$ в $X$ називається нечітка множина $A$ з функцією належності вигляду:
+\begin{equation}
+\begin{aligned}
+& \mu_{A}(x)=\sum_{i=1}^n \lambda_i \mu_i(x), \\
+& \text {де}, \lambda_i \geq 0, \quad i=1,2, \ldots, n, \quad\sum_{i=1}^n \lambda_i=1 .
+\end{aligned}
+\end{equation}
+
+Опуклі комбінації нечітких множин можуть застосовуватися, наприклад, у задачах прийняття рішень з кількома нечіткими обмеженнями. Зауважимо, що для звичайних множин ця операція не має сенсу.
+
+\textit{Операції концентрування (CON) та розтягування (DIL) нечіткої множини} $A$ визначаються наступним чином:
+\begin{align}
+& \operatorname{CON} A = A^2, \quad \operatorname{DIL} A = A^{0.5},\\
+& \text{де } \mu_{A^\alpha}(x) = \mu_A^\alpha(x), \quad x\in X, \alpha > 0.
+\end{align}
+
+Застосування операції концентрування до заданої нечіткої множини фактично означає зменшення <<нечіткості>> цієї множини. У реальній ситуації це може означати отримання нової інформації, що дозволяє більш точно (більш чітко) описати поняття нечіткої множини. Аналогічним чином, операцію розтягування можна застосовувати для моделювання ситуації, пов'язаної з втратою інформації.
+
+\subsubsection{Множини рівня та декомпозиція нечіткої множини}
+
+Множина рівня $\alpha$ нечіткої множини $A$ в $X$ називається множиною у звичайному розумінні, складеною з елементів $x \in X$, ступінь належності яких до нечіткої множини $A$ не менше числа $\alpha$. Таким чином, якщо $A_\alpha$ - множина рівня $\alpha$ нечіткої множини $A$, то
+\begin{equation}
+A_a=\left\{x \mid x \in X, \quad \mu_A(x) \geq \alpha\right\} .
+\end{equation}
+
+Як буде показано нижче, множинами рівня зручно користуватися при формулюванні та аналізі деяких задач прийняття рішень.
+
+Нехай $(A \cup B)_\alpha$ та $(A \cap B)_\alpha$ -- множини рівня $\alpha$ об'єднання та перетину нечітких множин $A$ та $B$ відповідно. Розглянемо зв'язок цих множин з множинами рівня $A_\alpha$ та $B_{\alpha}$. Якщо прийняти перші визначення об'єднання та перетину, то, як легко бачити, цей зв'язок такий:
+\begin{equation}
+(A \cup B)_\alpha=A_\alpha \cup B_\alpha, \quad(A \cap B)_\alpha=A_\alpha \cap B_{\alpha}.
+\end{equation}
+
+У випадку других визначень маємо лише:
+\begin{equation}
+(A \cup B)_\alpha \supset A_\alpha \cup B_\alpha, \quad(A \cap B)_\alpha \subset A_\alpha \cap B_{\alpha}.
+\end{equation}
+
+Якщо $\left(A_1 \times \ldots \times A_n\right)_\alpha$ -- множина рівня $\alpha$ декартового добутку нечітких множин $A_1, \ldots, A_n$, то з визначення декартового добутку легко бачити, що
+\begin{equation}
+\left(A_1 \times \ldots \times A_n\right)_\alpha=\left(A_1\right)_\alpha \times \ldots \times\left(A_n\right)_\alpha,
+\end{equation}
+тобто множина рівня $\alpha$ декартового добутку є декартовим добутком множин рівня $\alpha$ його нечітких множин.
+
+Множина $\left(A_\alpha\right)$ рівня $\alpha$ будь-якої опуклої комбінації нечітких множин $A_1, \ldots, A_n$ містить перетин множин рівня $\alpha$ усіх її множин, тобто
+\begin{equation}
+\bigcap_{i=1}^n\left(A_i\right)_\alpha \subset A_{\alpha}.
+\end{equation}
+
+В деяких випадках зручно використовувати розклад нечіткої множини по її множинам рівня, тобто представленням її у вигляді
+\begin{equation}
+A=\bigcup_\alpha \alpha A_\alpha,
+\end{equation}
+де $\mu_{\alpha A_\alpha}(x)=\alpha \mu_{A_\alpha}(x)$, а об'єднання нечітких множин $\alpha A_\alpha$ береться відповідно до визначенням по всім $\alpha$ від 0 до 1.
+
+\subsection{Некооперативні ігри з нечіткими виплатами}
+Такі ігри мають наступний вигляд:
+
+\begin{equation}
+G=\left(X_{i}, \tilde{f}_{i} \right)_{i \in I}
+\end{equation}
+де $\tilde{f}_{i}, i \in I$ -- нечіткі числа. В літературі немає значних результатів щодо цієї загальної форми. Найважливіші результати отримані для двох гравців з кінцевим набором стратегій. Далі представляються основні результати щодо нечітких матричних ігор. \cite{Larbani}
+
+\subsubsection{Матрична гра}
+Матрична гра є скінченною грою двох осіб з нульовою сумою. У такій грі є два гравці: Гравець~I та Гравець~II. Гравець~I максимізує виграш, а Гравець~II мінімізує його. Оскільки це гра з нульовою сумою, її можна формально представити наступним чином:
+\begin{equation}
+G=\left(X_{1}, X_{2}, A\right),
+\end{equation}
+де $X_{1}=\{1,2, \ldots, m\}$ та $X_{2}=\{1,2, \ldots, n\}$ -- це множини чистих стратегій Гравців I та II відповідно; $A$ -- це матриця $m \times n$, яка представляє виграші Гравця I.
+
+\begin{equation}
+A=\left(\begin{array}{lll}
+a_{11} & \ldots & a_{1 n} \\
+\vdots & \ddots & \vdots \\
+a_{m 1} & \ldots & a_{m n}
+\end{array}\right)
+\end{equation}
+
+Гравець І вибирає рядки, а Гравець~II вибирає стовпці матриці. Якщо гравці обирають пару чистих стратегій $(i, j)$, то Гравець І отримує винагороду $a_{i j}$, а Гравець~II отримує $-a_{i j}$.
+
+\subsubsection{Нечіткі матричні ігри}
+У цьому розділі представляється основна ідея найважливіших підходів для розв'язку матричних ігор з нечіткими виграшами. Матрична гра з нечіткими виграшами -- це кінцева гра з нульовою сумою для двох осіб із нечіткими виграшами. Її можна представити грою, подібною до звичайної матричної гри, з тією лише різницею, що матриця виграшів нечітка
+
+\begin{equation}
+\begin{aligned}
+& G=\left(S^{n}, S^{m}, \tilde{A}\right), \\
+& \tilde{A}=\left(\tilde{a}_{i j}\right)_{\substack{1 \leqslant i \leqslant m \\
+1 \leqslant j \leqslant n}}=\left(\begin{array}{llll}
+\tilde{a}_{11} & \ldots & \tilde{a}_{1 n} \\
+\vdots & \ddots & \vdots \\
+\tilde{a}_{m 1} & \ldots & \tilde{a}_{m n}
+\end{array}\right).
+\end{aligned}
+\end{equation}
+
+\subsubsection{Модель Кампоса}
+Першу модель, що використовує ранжування нечітких чисел, представив Кампос. Кампос трансформує задачу пошуку розв'язку нечіткої матричної гри у наступну пару задач нечіткого лінійного програмування:
+\begin{equation}
+\begin{aligned}
+& \operatorname{Max} v, \qquad \qquad \quad \text { Min } w , \\
+& \begin{array}{ll}p^{T} \tilde{A} \, \tilde{\geqslant} \, e w , & \tilde{A} q \,\tilde{\leqslant}\, e w \\e^{T} p=1, \quad  q \geqslant 0 , & e^{T} q=1, \quad q \geqslant 0 .\end{array}
+\end{aligned}
+\end{equation}
+
+Тут і далі $e$ представляє вектор відповідної розмірності, компоненти якого є одиницями. Використовуючи метод Ягера для вираження подвійних нечітких обмежень у термінах адекватності $\tilde{t}$ та $\tilde{k}$, пара задач оптимізації нечіткості перетворюється на наступну пару задач лінійного програмування:
+\begin{equation}
+\begin{aligned}
+\operatorname{Min} & \sum_{i=1}^{m} u_{i} , \\
+& \sum_{i=1}^{m}\left(a_{i j}^{L}+a_{i j}+a_{i j}^{U}\right) u_{i} \geqslant 3-\left(t_{j}^{L}+t_{j}+t_{j}^{U}\right)(1-\alpha), \quad j=1, \ldots, n, \\
+& \alpha \in[0,1], \quad u_{i} \geqslant 0, \quad i=1, \ldots, m
+\end{aligned}
+\end{equation}
+та
+\begin{equation}
+\begin{aligned}
+\operatorname{Max} & \sum_{j=1}^{n} s_{j} , \\
+& \sum_{j=1}^{n}\left(a_{i j}^{L}+a_{i j}+a_{i j}^{U}\right) s_{j} \geqslant 3-\left(k_{i}^{L}+k_{i}+k_{i}^{U}\right)(1-\beta), \quad i=1, \ldots, m \\
+& \beta \in[0,1], \quad s_{j} \geqslant 0, \quad j=1, \ldots, n
+\end{aligned}
+\end{equation}
+де $\tilde{a}_{i j}=\left(a_{i j}^{L}, a_{i j}, a_{i j}^{U}\right), \tilde{t}=\left(t_{j}^{L}, t_{j}, t_{j}^{U}\right)$ і $\tilde{k}=\left(k_{i}^{L}, k_{i}, k_{i}^{U}\right)$ є трикутними нечіткими числами (TFN).
+\subsubsection{Багатоцільовий підхід: модель Лі}
+Лі використовував наступний порядок ранжування TFN. 
+Нехай $\tilde{a}=\left(a^{L}, a, a^{U}\right)$ та $\tilde{b}=\left(b^{L}, a, b^{U}\right)$ -- два TFN.
+$
+\text{Тоді } \tilde{a} \,\tilde{\leqslant}\, \tilde{b} \text { якщо } a^{L} \leqslant b^{L}, a \leqslant b \text { та } a^{U}\leqslant b^{U} .
+$
+
+Нехай $\tilde{v}=\left(v^{L}, v, v^{U}\right)$ та $\tilde{w}=\left(w^{L}, w, w^{U}\right)$ -- два TFN. Тоді $(\tilde{v}, \tilde{w})$ називається розумним розв'язком гри, якщо існує $(\bar{p}, \bar{q}) \in S^{m} \times S^{n}$ такі, що
+
+(i) $\bar{p}^{T} \tilde{A} q \geqslant \tilde{v}, \quad \forall q \in S^{n}$
+
+(ii) $p^{T} \tilde{A} \bar{q} \leqslant \tilde{w}, \quad \forall p \in S^{m}$.\\
+Позначимо $V=\{\tilde{v} / \tilde{v}$ виконує (i) $\}$ та $W=\{\tilde{w} / \tilde{w}$ виконує (ii) $\}$.\\
+Елемент $\left(\tilde{v}^{}, \tilde{w}^{}\right) \in V \times W$ називається розв'язком гри, якщо
+
+(1) $\tilde{v}^{*} \tilde{\geqslant} \tilde{v}, \quad \forall \tilde{v} \in V$,
+
+(2) $\tilde{w}^{*} \tilde{\leqslant} \tilde{w}, \quad \forall \tilde{w} \in W$.
+
+Проблему пошуку розв'язку гри можна тоді перетворити на задачу розв'язання наступної пари задач багатокритеріального програмування:
+\begin{equation}
+\begin{aligned}
+\operatorname{Max}, & \left(v^{L}, v, v^{U}\right) \\
+& \sum_{i=1}^{m} a_{i j}^{L} p_{i} \geqslant v^{L}, \quad j=1, \ldots, n, \\
+& \sum_{i=1}^{m} a_{i j} p_{i} \geqslant v, \quad j=1, \ldots, n, \\
+& \sum_{i=1}^{m} a_{i j}^{U} p_{i} \geqslant v^{U}, \quad j=1, \ldots, n, \\
+& e^{T} p=1, \quad p \geqslant 0
+\end{aligned}
+\end{equation}
+та
+\begin{equation}
+\begin{aligned}
+\operatorname{Min} , & \left(w^{L}, w, w^{U}\right) \\
+& \sum_{j=1}^{n} a_{i j}^{L} q_{j} \leqslant w^{L}, \quad i=1, \ldots, m, \\
+& \sum_{j=1}^{n} a_{i j} q_{j} \leqslant w, \quad i=1, \ldots, m, \\
+& \sum_{j=1}^{n} a_{i j}^{U} q_{j} \leqslant w^{U}, \quad i=1, \ldots, m, \\
+& e^{T} q=1, \quad q \geqslant 0 .
+\end{aligned}
+\end{equation}
+
+\subsubsection{Модель Бектора}
+Бектор використовує подвійність у нечіткому лінійному програмуванні та перший індекс Ягера, щоб представити розв'язок для матричної гри з нечіткими виграшами. Вони визначають два типи розв'язків для гри: розумний та простий.
+
+Нехай $\tilde{v}, \tilde{w}$ — два нечітких числа. Тоді $(\tilde{v}, \tilde{w})$ називається \textbf{розумним розв’язком гри}, якщо існує пара $x^{*} \in S^{m}, y^{*} \in S^{n}$ що задовольняє
+
+(i) $x^{* T} \tilde{A} y \succcurlyeq \tilde{v}, \quad \forall y \in S^{n}$,
+
+(ii) $x^{T} \tilde{A} y^{*} \preccurlyeq \tilde{w}, \quad \forall x \in S^{m}$.
+
+Якщо $(\tilde{v}, \tilde{w})$ є розумним розв’язком, то $\tilde{v}$ (відповідно, $\tilde{w}$ ) називається \textbf{прийнятним значенням} для Гравця I (відповідно, Гравця~II).
+
+Нехай $T_{1}$ і $T_{2}$ -- набори всіх розумних значень $\tilde{v}$ і $\tilde{w}$ для Гравців I та II відповідно, де $\tilde{v}, \tilde{w}$ є нечіткими числами. Нехай існують $\tilde{v}^{*} \in T_{1}$ та $\tilde{w}^{*} \in T_{2}$ такі, що
+
+(i) $F\left(\tilde{v}^{*}\right) \geqslant F(\tilde{v}), \quad \forall \tilde{v} \in T_{1}$
+
+(ii) $F\left(\tilde{w}^{*}\right) \leqslant F(\tilde{w}), \quad \forall \tilde{w} \in T_{2}$.
+
+$F: N(R) \rightarrow R$ -- \textbf{функція дефазифікації}, де $N(R)$ -- набір дійсних нечітких чисел. Далі Вводиться наступна пара задач нечіткого лінійного програмування для гравців I та II:
+
+\begin{equation}
+\begin{cases}
+\operatorname{Max} F(\tilde{v})\\
+x^{T} \tilde{A} y \succcurlyeq \tilde{p} \tilde{v},\\ \forall y \in S^{n}, x \in S^{m}
+\end{cases}
+\end{equation}
+та
+
+\begin{equation}
+\begin{cases}
+\operatorname{Min} F(\tilde{w})\\
+x^{T} \tilde{A} y \preccurlyeq \tilde{q} \tilde{w},\\ x \in S^{m}, y \in S^{n}
+\end{cases}
+\end{equation}
+де $x^{T} \tilde{A} y \succcurlyeq \tilde{p} \tilde{v}$ і $x^{T} \tilde{A} y \preccurlyeq \tilde{q} \tilde{w }$
+-- подвійні нечіткі нерівності з адекватністю $\tilde{p}$ та $\tilde{q}$ відповідно. 
+
+Потім задачі перетворюється на наступну чітку пару задач:
+\begin{equation}
+\begin{aligned}
+&\text{Max } V, \\
+&\text{} \begin{cases}
+\sum_{i=1}^{m} F\left(\tilde{a}_{i j}\right) x_{i} \geqslant V+(1-\gamma) F(\tilde{p}), & j=1,\dots,n, \\
+\sum_{i=1}^{m} x_{i}=1, x \geqslant 0, 0 \leqslant \gamma \leqslant 1
+\end{cases}
+\end{aligned}
+\end{equation}
+та
+\begin{equation}
+\begin{aligned}
+&\text{Min } W , \\
+&\text{} \begin{cases}
+\sum_{j=1}^{n} F\left(\tilde{a}_{i j}\right) y_{j} \leqslant W+(1-\rho) F(\tilde{q}), & i=1,\dots,m, \\
+\sum_{j=1}^{n} y_{j}=1,
+y \geqslant 0,
+0 \leqslant \rho \leqslant 1
+\end{cases}
+\end{aligned}
+\end{equation}
+
+\section{ЗАСТОСУВАННЯ ПРИНЦИПУ УЗАГАЛЬНЕННЯ }
+Лю та Као розробляють метод розв'язання для матричних ігор з нечіткими виграшами на основі принципу узагальнення. Розглянемо нечітку матричну гру. Тоді задача для Гравця I (Гравець~II) полягає в тому, щоб знайти оптимальний розв’язок задачі. Використовуючи принцип узагальнення, Лю та Као визначають цінність гри як нечітке число $\tilde{Z}$ з такою функцією належності:
+\begin{equation}
+\mu_{\tilde{Z}}(z)=\operatorname{Sup}_{a_{i j}} \operatorname{Min}\left\{\mu_{\tilde{a}_{i j}}\left(a_{i j}\right), \quad \forall i, j / z=Z(a)\right\} .
+\end{equation}
+
+Для фіксованого значення рівня зрізу $\alpha$ верхня межа $\tilde{Z}_{\alpha}^{U}$ і нижня межа $\tilde{Z}_{\alpha}^{L} $ з $\tilde{Z}$ обчислюються шляхом розв'язання наступної пари дворівневих задач, відповідно,
+
+\begin{equation}
+\begin{aligned}
+\tilde{Z}_\alpha^U= & \operatorname{Max}_{\left(a_{i j}\right)_\alpha^L \leqslant a_{i j} \leqslant\left(a_{i j}\right)_\alpha^U, \quad \forall i, j} \operatorname{Max}_p v \\
+& \left\{\begin{aligned}
+&\sum_{i=1}^m a_{i j} p_i \geqslant v, \quad j=1, \ldots, n, \\
+&\sum_{i=1}^m p_i=1, \\
+&p_i \geqslant 0, \quad i=1, \ldots, m
+\end{aligned}\right.
+\end{aligned}
+\end{equation}
+та
+\begin{equation}
+\begin{aligned}
+\tilde{Z}_\alpha^L= & \operatorname{Min}_{\left(a_{i j}\right)_\alpha^L \leqslant a_{i j} \leqslant\left(a_{i j}\right)_\alpha^U, \forall i, j} \operatorname{Max}_p v \\
+& \left\{\begin{aligned}
+&\sum_{i=1}^m a_{i j} p_i \geqslant v, \quad j=1, \ldots, n, \\
+&\sum_{i=1}^m p_i=1, \\
+&p_i \geqslant 0, \quad i=1, \ldots, m 
+\end{aligned}\right.
+\end{aligned}
+\end{equation}
+
+Аналогічну пару дворівневих задач можна сформулювати для Гравця II. Тоді використовуючи заміну змінної $t_{i j}=a_{i j} p_{i}$ та $l_{i j}=a_{i j} q_{j}$ отримуємо таку пару задач лінійного програмування:
+\begin{equation}
+\begin{aligned}
+& \tilde{Z}_{\alpha}^{U}= \operatorname{Max} v, \\
+& \qquad\left\{\begin{aligned}
+& \sum_{i=1}^{m} t_{i j} \geqslant v, \quad j=1, \ldots, n, \\
+& \sum_{i=1}^{m} p_{i}=1, \\
+& \left(a_{i j}\right)_{\alpha}^{L} p_{i} \leqslant t_{i j} \leqslant\left(a_{i j}\right)_{\alpha}^{U} p_{i}, \quad i=1, \ldots, m,\quad j=1, \ldots, n, \\
+& p_{i} \geqslant 0, t_{i j}, v \quad i=1, \ldots, m, \quad j=1, \ldots, n .
+\end{aligned}\right.
+\end{aligned}
+\end{equation}
+та
+\begin{equation}
+\begin{aligned}
+& \tilde{Z}_{\alpha}^{L}= \operatorname{Min} u, \\
+& \qquad\left\{\begin{aligned}
+& \sum_{j=1}^{n} l_{i j} \leqslant u, \quad i=1, \ldots, m, \\
+& \sum_{j=1}^{n} q_{j}=1, \\
+& \left(a_{i j}\right)_{\alpha}^{L} q_{j} \leqslant l_{i j} \leqslant\left(a_{i j}\right)_{\alpha}^{U} q_{j}, \quad i=1, \ldots, m,\quad j=1, \ldots, n, \\
+& q_{j} \geqslant 0, l_{i j}, u \quad i=1, \ldots, m,\quad j=1, \ldots, n .
+\end{aligned}\right.
+\end{aligned}
+\end{equation}
+
+Цільове значення $\tilde{Z}_{\alpha}^{L}$ разом із $\tilde{Z}_{\alpha}^{U}$, становить $\alpha$-переріз $\left[\tilde{Z}_{\alpha}^{L}, \tilde{Z}_{\alpha}^{U}\right]$, де значення $\tilde {Z}$ нечіткої гри лежить на зазначеному $\alpha$-рівні. Подібне перетворення можна застосувати до пари задач, пов’язаних з Гравцем II. Це показує, що нечітке значення, розраховане для двох гравців, однакове. Зверніть увагу, що більшість підходів до розв’язання гри не забезпечують однакові нечіткі або чіткі значення для обох гравців. Нехай $R(z)=\left(Z_{\alpha}^{U}\right)^{-1}$ та $L(z)=\left(Z_{\alpha}^{L}\right) ^{-1}$ -- права та ліва функції форми нечіткого значення $\tilde{Z}$, тоді $\tilde{Z}$ можна отримати як
+\begin{equation}
+\mu_{\tilde{z}}(z)=\left\{\begin{array}{ll}
+L(z), & z_{\alpha=0}^{L} \leqslant z \leqslant z_{\alpha=1}^{L}, \\
+1, & z_{\alpha=1}^{L} \leqslant z \leqslant z_{\alpha=1}^{U}, \\
+R(z), & z_{\alpha=1}^{U} \leqslant z \leqslant z_{\alpha=0}^{L} .
+\end{array} .\right.
+\end{equation}
+
+У більшості випадків рівняння $R(z)=\left(Z_{\alpha}^{U}\right)^{-1}$ і $L(z)=\left(Z_{\alpha}^{ L}\right)^{-1}$ неможливо знайти аналітично. Однак для різних рівнів можливостей $\alpha, \tilde{Z}_{\alpha}^{L}$ і $\tilde{Z}_{\alpha}^{U}$ можна обчислити для наближення форм $R(z)$ і $L(z)$ відповідно.
+
+\subsection{Постановка задачі}
+В реальному світі існують випадки, коли виграші невідомі або відомі лише приблизно, що може бути прикладом конкуренції між двома компаніями з різними стратегіями реклами або політичними кандидатами, які обирають різні рішення для своєї кампанії. В таких випадках застосовуються нечіткі числа для кількісного опису невизначеності при прийнятті рішень.
+
+У цьому розділі пропонується метод розв'язку для двоособової гри з нульовою сумою, де виграші є лише приблизно відомими та можуть бути представлені нечіткими числами. Через те, що виграші є нечіткими, значення гри також є нечітким.
+
+Розглянемо матричну гру двох гравців, де гравець 1 має $m$ стратегій для вибору, а гравець 2 має $n$ стратегій для вибору в кожному раунді гри. Якщо в одному раунді гравець 1 обирає стратегію $i$, а гравець 2 обирає стратегію $j$, то гравець 1 отримує $a_{i j}$ одиниць винагороди, а гравець 2 втрачає $a_{i j}$. Матриця $A=\left|a_{i j}\right|$ відома як матриця виграшів гри.
+
+Позначимо ймовірність, з якою гравець 1 використовує стратегію $i$, як $x_{i}$, а ймовірність, з якою гравець 2 використовує стратегію $j$, як $y_{j}$. Вектори ймовірностей $\boldsymbol{x}=\left(x_{1}, \ldots, x_{m}\right)$ та $\boldsymbol{y}=\left(y_{1},\ldots, y_{n}\right)$ відомі як змішані стратегії гравця 1 та гравця 2 відповідно. Гравець 1 прагне знайти змішану стратегію $\boldsymbol{x}$, яка приносить найбільшу очікувану виграш. Коли гравець 2 використовує стратегію $j$, очікуваний виграш для гравця 1 дорівнює $a_{1 j} x_{1}+\cdots+a_{m j} x_{m}$. Оскільки гравець 2 може використовувати будь-яку стратегію $j$, гравець 1 намагається забезпечити мінімальний очікуваний виграш $v$ через обмеження $a_{1 j} x_{1}+\cdots+a_{m j} x_{m} \geq v$ для всіх $j=1, \ldots, n$. Відповідно до критерію мінімакс, оптимальна стратегія для гравця 1 може бути сформульована за допомогою наступної задачі лінійного програмування:
+
+\begin{equation}
+\begin{aligned}
+Z &=\text{Max v} \\
+& \sum_{i=1}^{m} a_{i j} x_{i} \geq v, \quad j=1, \ldots, n \\
+& \sum_{i=1}^{m} x_{i}=1 \\
+& x_{i} \geq 0, i=1, . ., m.
+\end{aligned}
+\end{equation}
+
+З точки зору гравця 2, його очікуваний втрати становлять $a_{i 1} y_{1}+\cdots+a_{i n} y_{n}$, коли гравець 1 використовує стратегію $i$. Оскільки гравець 1 може використовувати будь-яку стратегію $i$, гравець 2 намагається мінімізувати очікувані втрати $u$ за допомогою обмеження $a_{i 1} y_{1}+\cdots+a_{i n} y_{n} \leq u$ для $i=1, \ldots, m$. Відповідно, задача лінійного програмування для гравця 2 для знаходження оптимальної стратегії $\boldsymbol{y}$ та відповідного значення гри $u$ є:
+
+\begin{equation}
+\begin{aligned}
+Z &= \text{Min u} \\
+& \sum_{j=1}^{n} a_{i j} y_{j} \leq u, \quad i=1, \ldots, m \\
+& \sum_{j=1}^{n} y_{j}=1 \\
+& y_{j} \geq 0, j=1, . ., n.
+\end{aligned}
+\end{equation}
+
+Очевидно, ця модель є двоїстою до попередньої моделі отже, оптимальні стратегії для обох гравців можна розв'язати з будь-якої задачі.
+
+Припустимо, що виграш $a_{i j}$ приблизно відомий і може бути представлений опуклою нечіткою множиною $\tilde{A}{i j}$. Нехай $\mu{\tilde{A}_{i j}}$ позначає її функцію належності:
+\begin{equation}
+\tilde{A}_{i j}=\left\{\left(a_{i j}, \mu_{\tilde{A}_{i j}}\left(a_{i j}\right)\right) \mid a_{i j} \in S\left(\tilde{A}_{i j}\right)\right\},
+\end{equation}
+де $S\left(\tilde{A}{i j}\right)$ - це носій $\tilde{A}{i j}$, яка позначає універсальний набір виграшів. Без обмеження загальності, усі виграші в цьому дослідженні припускаються нечіткими числами, оскільки чіткі значення можуть бути представлені здегенерованими функціями належності, які мають лише одне значення в своїх областях. Коли виграші є нечіткими числами, ліва частина обмеження $\sum_{i=1}^{m} a_{i j} x_{i} \geq v$ у моделі стає $\sum_{\tilde{i}=1}^{m} \tilde{A}{i j} x{i}$, яке є нечітким числом. Різне значення $a_{i j}$ у нечіткому множині $\tilde{A}_{i j}$ призводить до різного значення цільової функції. Відповідно, значення цільової функції стає нечітким числом $\widetilde{Z}$ замість чіткого числа. Метою цієї статті є похід функції належності значення гри $\tilde{Z}$.
+У випадку, коли значення виграшів є нечіткими, гравці повинні вибирати свої стратегії, враховуючи нечіткість. Це може призвести до складнішого аналізу та потреби в модифікації задач лінійного програмування для врахування нечіткості. Однак, концепція нечіткого програмування допомагає узагальнити існуючі методи розв'язання задач гри на випадок, коли виграші мають нечіткі значення.
+\begin{equation}
+\mu_{\tilde{Z}}(z)=\operatorname{Sup}_{a_{i j}} \min \left\{\mu_{\tilde{A}_{i j}}\left(a_{i j}\right), \quad \forall i, j \mid z=Z(\mathbf{a})\right\}
+\end{equation}
+де $Z(\mathbf{a})$ визначено у моделі. Застосування принципу узагальнення до $\tilde{Z}$ можна розглядати як застосування цього принципу узагальнення до $\alpha$-перерізу $\tilde{Z} .^{17}$ У рівнянні задіяно кілька функцій належності. Отримати $\mu_{\tilde{Z}}$ від $\mu_{\tilde{A}{i j}}$ безпосередньо у закритій формі майже неможливо. $\mu{\tilde{Z}}(z)$ - це мінімум тих $\mu_{\tilde{A}{i j}}, \forall i, j$, таких, що $z=Z(\mathbf{a})$. На конкретному рівні можливості $\alpha$, нам потрібно $\mu{\tilde{A}{i j}}\left(a{i j}\right) \geq \alpha$ та принаймні одне $\mu_{\tilde{A}{i j}}\left(a{i j}\right), \forall i, j$, дорівнює $\alpha$, таким чином, що $z=Z(\mathbf{a})$, для задоволення $\mu_{\tilde{Z}}(z)=\alpha$. Щоб знайти функцію належності $\mu_{\tilde{Z}}$, достатньо знайти праву функцію форми та ліву функцію форми $\mu_{\tilde{Z}}$. Це еквівалентно знаходженню верхньої межі $Z_{\alpha}^{\mathrm{U}}$ та нижньої межі $Z_{\alpha}^{\mathrm{L}}$ $\alpha$-перерізів $\widetilde{Z}$. 
+
+Позначимо $\alpha$-переріз $\tilde{A}_{i j}$ як
+
+\begin{equation}
+\begin{aligned}
+\left(A_{i j}\right)_{\alpha} & =\left[\left(A_{i j}\right)_{\alpha}^{\mathrm{L}},\left(A_{i j}\right)_{\alpha}^{\mathrm{U}}\right] \\
+& =[\min _{a_{i j}}\left\{a_{i j} \in S\left(\tilde{A}_{i j}\right) \mid \mu_{\tilde{A}_{i j}}\left(a_{i j}\right) \geq \alpha\right\},\\
+& \quad \max _{a_{i j}}\left\{a_{i j} \in S\left(\tilde{A}_{i j}\right) \mid \mu_{\tilde{A}_{i j}}\left(a_{i j}\right) \geq \alpha\right\}]
+\end{aligned}
+\end{equation}
+\begin{flushleft}
+\begin{tikzpicture}[scale=3]
+\draw[->] (0,0) -- (5,0) node[right] {$A$};
+\draw[->] (0,0) -- (0,2.5) node[above] {$\mu_{\tilde{A}}$};
+\draw[dashed] (1.5,0) -- (1.5,1);
+\draw[dashed] (3.5,1) -- (3.5,0);
+\draw[dashed] (2,0) -- (2,2);
+\draw[dashed] (3,0) -- (3,2);
+\draw[dashed] (0,2) -- (5,2);
+\draw[dashed] (0,1) -- (5,1);
+\draw (1,0) -- (2,2) -- (3,2) -- (4,0) -- cycle;
+\node[below] at (0,0) {$0$};
+\node[below] at (1,0) {$1$};
+\node[below] at (1.5,0) {$1.5$};
+\node[below] at (2,0) {$2$};
+\node[below] at (3,0) {$3$};
+\node[below] at (3.5,0) {$3.5$};
+\node[below] at (4,0) {$4$};
+\node[left] at (0,2) {$1$};
+\node[left] at (0,1) {$0.5$};
+\end{tikzpicture}
+\end{flushleft}
+
+Розглянемо $\alpha$-переріз для $\alpha=0.5$ на нечіткому числі $\tilde{A} = (1,2,3,4)$ для кращого розуміння.
+При $\alpha=0.0$, $\left(A\right)_{0}^{\mathrm{L}} = 1$ та $\left(A\right)_{0}^{\mathrm{U}} = 4$.
+При $\alpha=0.5$, $\left(A\right)_{0.5}^{\mathrm{L}} = 1.5$ та $\left(A\right)_{0.5}^{\mathrm{U}} = 3.5$.
+При $\alpha=1.0$, $\left(A\right)_{1}^{\mathrm{L}} = 2$ та $\left(A\right)_{1}^{\mathrm{U}} = 3$.
+На кожному $\alpha$-перерізі нечітке число $\tilde{A}$ може приймати значення на відповідному інтервалі $\left[\left(A\right)_{\alpha}^{\mathrm{L}},\left(A\right)_{\alpha}^{\mathrm{U}}\right]$.
+
+Графік показує функцію належності нечіткого числа на інтервалі $[1,4]$ з максимальним значенням $1$ при $2$ та $3$. Пунктирні лінії показують інтервали для кожного $\alpha$-перерізу.
+
+Оскільки $Z_{\alpha}^{\mathrm{U}}$ є максимумом $Z(\mathbf{a})$ та $Z_{\alpha}^{\mathrm{L}}$ є мінімумом $Z(\mathbf{a})$, вони можуть бути виражені як
+
+\begin{equation}
+\begin{aligned}
+& Z_{\alpha}^{\mathrm{U}}=\max \left\{Z(\mathbf{a}) \mid\left(A_{i j}\right)_{\alpha}^{\mathrm{L}} \leq a_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}}, \quad \forall i, j\right\} \\
+& Z_{\alpha}^{\mathrm{L}}=\min \left\{Z(\mathbf{a}) \mid\left(A_{i j}\right)_{\alpha}^{\mathrm{L}} \leq a_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}}, \quad \forall i, j\right\}
+\end{aligned}
+\end{equation}
+
+Значення $a_{i j}$, яке досягає найбільшого значення для $v$, може бути визначено за допомогою такої дворівневої математичної програми:
+
+\begin{equation}
+Z_{\alpha}^{\mathrm{U}}=\underset{\substack{\left(A_{i j}\right)_{\alpha}^{\mathrm{L}} \leq a_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}} \\ \forall i, j}}{\operatorname{Max}} \begin{cases}\operatorname{Max}_{x} v \\ \sum_{i=1}^{m} a_{i j} x_{i} \geq v, & j=1, \ldots, n \\ \sum_{i=1}^{m} x_{i}=1 \\ x_{i} \geq 0, & i=1, \ldots, m
+\end{cases}
+\end{equation}
+
+Принаймні одне значення $a_{i j}$ повинно відповідати межі свого $\alpha$-перерізу, щоб задовольнити $\mu_{\tilde{Z}}(z)=\alpha$. У моделі внутрішня програма обчислює очікувану винагороду для кожного $a_{i j}$, заданого зовнішньою програмою, тоді як зовнішня програма визначає значення $a_{i j}$, яке генерує найбільшу винагороду. Значення цілі $Z_{\alpha}^{\mathrm{U}}$ є верхньою межею очікуваної винагороди для $\alpha$-рівневого перерізу для гравця 1.
+
+Аналогічно, щоб знайти значення $a_{i j}$, яке дає найменшу винагороду, дворівневу математичну програму можна сформулювати, просто замінивши зовнішню програму моделі з <<Max>> на <<Min>>:
+\begin{equation}
+Z_{\alpha}^{\mathrm{L}}=\underset{\substack{\left(A_{i j}\right)_{\alpha}^{\mathrm{L}} \leq a_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}} \\
+\forall i, j}}{\operatorname{Min}}\left\{\begin{array}{ll}
+\operatorname{Max}_{x} v \\
+\sum_{i=1}^{m} a_{i j} x_{i} \geq v, & j=1, \ldots, n \\
+\sum_{i=1}^{m} x_{i}=1 \\
+x_{i} \geq 0, & \text { for } i=1, \ldots, m
+\end{array}\right.
+\end{equation}
+
+У цій моделі внутрішня програма обчислює очікувану винагороду для кожного заданого значення $a_{i j}$, тоді як зовнішня програма визначає значення $a_{i j}$, яке дає найменшу винагороду. Значення цілі $Z_{\alpha}^{\mathrm{L}}$ є нижньою межею очікуваної винагороди для $\alpha$-рівневого перерізу для гравця 1. Коли нечітка виплата $\tilde{A}{i j}$ дегенерується до точкової виплати $a{i j}$, зовнішня програма моделей та зникає. У цьому випадку моделі та дегенеруються до звичайної моделі матричних ігор. Ця властивість показує, що розроблена тут модель на основі нечітких значень є узагальненням традиційної моделі з точковими значеннями.
+
+Ми також можемо сформулювати верхню межу та нижню межу очікуваної винагороди для гравця 2 на основі моделі:
+\begin{equation}
+Z_{\alpha}^{\mathrm{U}}=\underset{\substack{\left(A_{i j}\right)_{\alpha}^{\mathrm{L}} \leq a_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}} \\
+\forall i, j}}{\operatorname{Max}}\left\{\begin{array}{ll}
+\operatorname{Min}_{y} u \\
+\sum_{j=1}^{n} a_{i j} y_{j} \leq u, & i=1, \ldots, m \\
+\sum_{j=1}^{n} y_{j}=1 \\
+y_{j} \geq 0, & \text { для } j=1, \ldots, n
+\end{array}\right.
+\end{equation}
+\begin{equation}
+Z_{\alpha}^{\mathrm{L}}=\underset{\substack{\left(A_{i j}\right)_{\alpha}^{\mathrm{L}} \leq a_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}} \\
+\forall i, j}}{\operatorname{Min}}\left\{\begin{array}{ll}
+\operatorname{Min}_{y} u \\
+\sum_{j=1}^{n} a_{i j} y_{j} \leq u, & i=1, \ldots, m \\
+\sum_{j=1}^{n} y_{j}=1 \\
+y_{j} \geq 0, & \text { для } j=1, \ldots, n
+\end{array}\right.
+\end{equation}
+
+Хоча дворівнева модель чітко виражає проблему, її не можна використовувати для знаходження розв'язку. Потрібне перетворення. У наступному розділі ми перетворимо дворівневу математичну задачу на звичайну однорівневу задачу лінійного програмування, з якої можна отримати нечітке значення нечіткої гри.
+
+\subsection{Однорівнева трансформація}
+Моделі є двома математичними програмами для обчислення верхньої та нижньої меж $\alpha$-перерізу розподіленого значення матричної гри з точки зору гравця 1, тоді як вони розглядаються з точки зору гравця 2. Оскільки як внутрішня, так і зовнішня програми мають однакову операцію максимізації, їх можна об'єднати в один рівень з урахуванням обмежень обох програм одночасно. Тобто,
+
+\begin{equation}
+\begin{aligned}
+Z_{\alpha}^{\mathrm{U}}= & \operatorname{Max} v \\
+\text { s.t. } & \sum_{i=1}^{m} a_{i j} x_{i} \geq v, \quad j=1, \ldots, n \\
+& \sum_{i=1}^{m} x_{i}=1 \\
+& \left(A_{i j}\right)_{\alpha}^{\mathrm{L}} \leq a_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}}, \quad i=1, \ldots, m, \quad j=1, \ldots, n \\
+& x_{i} \geq 0, \quad \text { for } i=1, \ldots, m
+\end{aligned}
+\end{equation}
+
+Ця модель є нелінійною через нелінійні члени $a_{i j} x_{i}$. Можна застосувати заміну змінних $p_{i j}=a_{i j} x_{i}$, щоб перетворити нелінійну задачу на лінійну:
+\begin{equation}
+\begin{aligned}
+Z_{\alpha}^{\mathrm{U}}= & \operatorname{Max} v \\
+\text { s.t. } & \sum_{i=1}^{m} p_{i j} \geq v, \quad j=1, \ldots, n \\
+& \sum_{i=1}^{m} x_{i}=1 \\
+& \left(A_{i j}\right)_{\alpha}^{\mathrm{L}} x_{i} \leq p_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}} x_{i}, \quad i=1, \ldots, m, \quad j=1, \ldots, n \\
+& x_{i} \geq 0, \quad \text { for } i=1, \ldots, m
+\end{aligned}
+\end{equation}
+
+Третій набір обмежень є результатом множення кожного доданка на $x_{i}$ та заміни $a_{i j} x_{i}$ на $p_{i j}$. Розв'язання цієї задачі лінійного програмування дозволяє отримати верхню межу $\alpha$-перерізу нечіткої величини нечіткої гри. Після того, як знайдені оптимальні розв'язки $p_{i j}^{*}$ та $x_{i}^{*}$, обчислюється оптимальне значення $a_{i j}^{*}$ за формулою $a_{i j}^{*}=p_{i j}^{*} / x_{i}^{*}$. Якщо $x_{i}^{}$ дорівнює 0, тоді $a_{i j}^{*}$ може приймати будь-яке значення у діапазоні між $\left(A_{i j}\right){\alpha}^{\mathrm{L}}$ та $\left(A{i j}\right)_{\alpha}^{\mathrm{U}}$.
+
+Розв'язати другу модель не так просто, як розв'язати першу, оскільки її зовнішня та внутрішня програми мають різні напрямки оптимізації -- одна для мінімізації, а інша для максимізації. Для отримання розв'язку потрібно змінити напрямок програми. Враховуючи теорему дуальності, дуальна задача має таке саме оптимальне значення цільової функції, як і її примітивна задача, коли існує оптимальний розв'язок. Отже, ми можемо замінити внутрішню програму другої моделі її дуальною задачею, щоб перетворити її на проблему мінімізації. Після цієї заміни і зовнішня, і внутрішня програми мають однаковий напрямок для оптимізації:
+\begin{equation}
+Z_{\alpha}^{\mathrm{L}}=\underset{\substack{\left(A_{i j}\right)_{\alpha}^{\mathrm{L}} \leq a_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}} \\
+\forall i, j}}{\operatorname{Min}}\left\{\begin{array}{ll}
+\operatorname{Min}_{y} u \\
+\sum_{j=1}^{n} a_{i j} y_{j} \leq u, & i=1, \ldots, m \\
+\sum_{j=1}^{n} y_{j}=1 \\
+y_{j} \geq 0, & \text { для } j=1, \ldots, n.
+\end{array}\right.
+\end{equation}
+
+Тепер, коли і внутрішня програма, і зовнішня програма мають однакову операцію мінімізації, їх можна об'єднати в однорівневу програму, враховуючи обмеження на двох рівнях одночасно. Нелінійні члени $a_{i j} y_{j}$ можуть бути лінеаризовані аналогічно попередній моделі шляхом заміни на $q_{i j}$ та обмеження $A_{i j}^{\mathrm{L}} \leq a_{i j} \leq A_{i j}^{\mathrm{U}}$, помножені на $y_{j}$, відповідно. Отримана задача лінійного програмування:
+\begin{equation}
+\begin{aligned}
+& Z_{\alpha}^{\mathrm{L}}= \operatorname{Min} u \\
+& \sum_{j=1}^{n} q_{i j} \leq u, i=1, \ldots, m \\
+& \sum_{j=1}^{n} y_{j}=1 \\
+&\left(A_{i j}\right)_{\alpha}^{\mathrm{L}} y_{j} \leq q_{i j} \leq\left(A_{i j}\right)_{\alpha}^{\mathrm{U}} y_{j}, \quad i=1, \ldots, m, \quad j=1, \ldots, n \\
+& y_{j} \geq 0, \quad q_{i j}, \quad i=1, \ldots, m, \quad j=1, \ldots, n
+\end{aligned}
+\end{equation}
+
+Коли отримані оптимальні значення $q_{i j}^{*}$ та $y_{j}^{*}$, оптимальне значення $a_{i j}^{*}$ обчислюється як $a_{i j}^{*}=q_{i j}^{*} / y_{j}^{*}$. Значення цільової функції $Z_{\alpha}^{\mathrm{L}}$, разом з $Z_{\alpha}^{\mathrm{U}}$, отриманим з моделі, $\left[Z_{\alpha}^{\mathrm{L}}, Z_{\alpha}^{\mathrm{U}}\right]$, складає $\alpha$-переріз, в якому значення нечіткої гри знаходиться на конкретному рівні $\alpha$.
+
+Для двох рівнів можливостей $\alpha_{1}$ та $\alpha_{2}$ таких, що $0<\alpha_{2}<\alpha_{1} \leq 1$, допустимі області, визначені $\alpha_{1}$, менші, ніж ті, що визначені $\alpha_{2}$. Відповідно, ми маємо $Z_{\alpha_{1}}^{\mathrm{U}} \leq Z_{\alpha_{2}}^{\mathrm{U}}$ та $Z_{\alpha_{1}}^{\mathrm{L}} \geq Z_{\alpha_{2}}^{\mathrm{L}}$. Ця властивість, заснована на визначенні <<опуклої нечіткої множини>>, гарантує опуклість $\tilde{Z}$. Якщо обидві $Z_{\alpha}^{\mathrm{U}}$ та $Z_{\alpha}^{\mathrm{L}}$ є оберненими щодо $\alpha$, то можна отримати праву функцію форми $R(z)=\left(Z_{\alpha}^{\mathrm{U}}\right)^{-1}$ та ліву функцію форми $L(z)=$ $\left(Z_{\alpha}^{\mathrm{L}}\right)^{-1}$. Від $R(z)$ та $L(z)$ функція належності $\mu_{\tilde{Z}}$ будується як
+
+\begin{equation}
+\mu_{\tilde{Z}}= \begin{cases}L(z), & Z_{\alpha=0}^{\mathrm{L}} \leq z \leq Z_{\alpha=1}^{\mathrm{L}} \\ 1, & Z_{\alpha=1}^{\mathrm{L}} \leq z \leq Z_{\alpha=1}^{\mathrm{U}} \\ R(z), & Z_{\alpha=1}^{\mathrm{U}} \leq z \leq Z_{\alpha=0}^{\mathrm{U}}\end{cases}
+\end{equation}
+
+У більшості випадків значення $Z_{\alpha}^{\mathrm{U}}$ та $Z_{\alpha}^{\mathrm{L}}$ можуть не мати аналітичних розв'язків. Однак чисельні розв'язки для $Z_{\alpha}^{\mathrm{U}}$ та $Z_{\alpha}^{\mathrm{L}}$ на різних рівнях можливості $\alpha$ можуть бути зібрані для апроксимації форм правої $R(z)$ та лівої $L(z)$ функцій, відповідно.
+
+\subsection{Приклад}
+Розглянемо матричну гру, в якій обидва гравці мають чотири стратегії на вибір. З 16 виплат, показаних у таблиці І, 8 є нечіткими числами. Ті, що мають три компоненти, є трикутними, а ті, що мають чотири компоненти, є трапецієподібними. Концептуально, верхня межа $Z_{\alpha}^{\mathrm{U}}$ та нижня межа $Z_{\alpha}^{\mathrm{L}}$ нечіткого значення гри на конкретному рівні $\alpha$ можуть бути сформульовані як\\
+\begin{equation*}
+\begin{aligned}
+& Z_{\alpha}^{\mathrm{U}}=\operatorname{Max} v \\
+& (26,27,28,30) x_{1}-28 x_{2}+(-27,-25,-22) x_{3}+30 x_{4} \geq v \\
+& -10 x_{1}+20 x_{2}+(10,11,12,14) x_{3}+(-38,-36,-35,-34) x_{4} \geq v \\
+& -20 x_{1}-10 x_{2}+20 x_{3}+(-34,-32,-30) x_{4} \geq v \\
+& (-3,0,3) x_{1}+(32,34,35,37) x_{2}-30 x_{3}+(32,33,34,36) x_{4} \geq v \\
+& x_{1}+x_{2}+x_{3}+x_{4}=1 \\
+& x_{1}, x_{2}, x_{3}, x_{4} \geq 0\\
+& Z_{\alpha}^{\mathrm{L}}=\operatorname{Min} u \\
+& (26,27,28,30) y_{1}-10 y_{2}-20 y_{3}+(-3,0,3) y_{4} \leq u \\
+&-28 y_{1}+20 y_{2}-10 y_{3}+(32,34,35,37) y_{4} \leq u \\
+&(-27,-25,-22) y_{1}+(10,11,12,14) y_{2}+20 y_{3}-30 y_{4} \leq u \\
+& 30 y_{1}+(-38,-36,-35,-34) y_{2}+(-34,-32,-30) y_{3} \\
+&+(32,33,34,36) y_{4} \leq u \\
+& y_{1}+y_{2}+y_{3}+y_{4}=1 \\
+& y_{1}, y_{2}, y_{3}, y_{4} \geq 0
+\end{aligned}
+\end{equation*}
+
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\hline
+& 1 & 2 & 3 & 4 \\
+\hline
+1 & $(26,27,28,30)$ & $-10$ & $-20$ & $(-3,0,3)$ \\
+2 & $-28$ & 20 & $-10$ & $(32,34,35,37)$ \\
+3 & $(-27,-25,-22)$ & $(10,11,12,14)$ & 20 & $-30$ \\
+4 & 30 & $(-38,-36,-35,-34)$ & $(-34,-32,-30)$ & $(32,33,34,36)$ \\
+\hline
+\end{tabular}
+\end{center}
+\begin{center}
+    \textbf{Таблиця 1.1.} Приклад виграшів гри.
+\end{center}
+
+На основі моделей верхня межа $Z_{\alpha}^{\mathrm{U}}$ та нижня межа $Z_{\alpha}^{\mathrm{L}}$ на різних рівнях $\alpha$ розраховуються відповідно. Таблиця ІІ містить $\alpha$-перерізи гри на 11 різних значеннях $\alpha$: $0,0.1,0.2, \ldots, 1.0$. $\alpha$-переріз $\widetilde{Z}$ відображає ймовірність того, що значення гри з'явиться у пов'язаному діапазоні. Чим більше значення $\alpha$, тим нижчий ступінь невизначеності. Оскільки розподілене значення гри знаходиться в діапазоні, різні $\alpha$-перерізи показують різні інтервали та рівень невизначеності значення гри. У цьому прикладі, хоча значення гри нечітке, його найбільш ймовірне значення знаходиться між $-2.8213$ та $-2.6405$, і неможливо, щоб його значення вийшло за межі діапазону $-3.6105$ та $-1.5959$. 
+
+\begin{center}
+\begin{tabular}{|c|cccccc|}
+\hline
+$\alpha$ & $0.0$ & $0.1$ & $0.2$ & $0.3$ & $0.4$ & $0.5$ \\
+\hline
+$Z_{\alpha}^{\mathrm{U}}$ & $-1.5959$ & $-1.7009$ & $-1.8058$ & $-1.9105$ & $-2.0151$ & $-2.1196$ \\
+$Z_{\alpha}^{\mathrm{L}}$ & $-3.6105$ & $-3.5317$ & $-3.4530$ & $-3.3742$ & $-3.2953$ & $-3.2164$ \\
+\hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+$\alpha$ & $0.6$ & $0.7$ & $0.8$ & $0.9$ & $1.0$ \\
+\hline
+$Z_{\alpha}^{\mathrm{U}}$ & $-2.2240$ & $-2.3283$ & $-2.4325$ & $-2.5365$ & $-2.6405$ \\
+$Z_{\alpha}^{\mathrm{L}}$ & $-3.1375$ & $-3.0585$ & $-2.9795$ & $-2.9005$ & $-2.8213$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+    \textbf{Таблиця 2.} $\alpha$-перерізи нечіткого значення гри на 11 $\alpha$ значень.
+\end{center}
+
+\subsection{Програмна реалізація}
+
+Програма спрямована на розв'язання нечітких матричних ігор з використанням реалізації на мові Java. Основною метою є розв'язання задач лінійного програмування з нечіткими числами. Для досягнення цієї мети ми використовуємо можливості оптимізації бібліотеки Apache Commons Math.
+
+\subsubsection*{Встановлення}
+\begin{itemize}
+\item Клонуйте репозиторій з \href{https://github.com/PivDen2000/Fuzzy-games}{GitHub}.
+\item Завантажте бібліотеку \href{https://commons.apache.org/proper/commons-math/download_math.cgi}{Apache Commons Math}.
+\item Розпакуйте завантажену папку і скопіюйте commons-math3-3.6.1 в папку проєкту.
+\item Відкрийте проєкт у вашому IDE (наприклад, Eclipse, IntelliJ IDEA).
+\item Додайте папку commons-math3-3.6.1 до проєкту.
+\end{itemize}
+
+\subsubsection*{Використання}
+
+\begin{itemize}
+\item Створіть файл з назвою input.txt і помістіть його в папку input\_output.
+\item У файлі input.txt введіть матрицю з нечіткими числами, дотримуючись прикладу, наведеного в проєкт.
+\item Запустіть проєкт.
+\item Програма буде зчитувати input.txt, формувати нечітку матрицю, створювати системи лінійних нерівностей з альфа-перерізами та розв'язувати їх (кількість альфа-перерізів можна налаштовувати).
+\item Результат буде записано у файл з назвою output.txt у папці input\_output.
+\item Крім того, буде створено графік точок розв'язку у форматі SVG з назвою image.svg.
+\end{itemize}
+
+\section*{ВИСНОВКИ}
+\addcontentsline{toc}{section}{ВИСНОВКИ}
+В роботі застосовано принцип узагальнення Заде для розробки методу розв'язання нечіткої матричної гри. 
+
+Для реалізації цього розробленого методу було написано програму, яка дозволяє розв'язувати нечіткі матричні ігри відповідно до принципу узагальнення. Програма розрахована на ігри довільної розмірності. Використано мову програмування Java та вбудовані функції для розв'язування лінійних нерівностей.
+
+У результаті виконання курсової роботи отримано досвід у розробці програм для розв'язання нечітких ігрових задач. 
+
+Для покращення роботи програми та її можливостей у майбутньому, можна додати функції для відображення графічних результатів, які б допомогли користувачам більш ефективно аналізувати результати гри. Також можна розглянути можливості використання більш ефективних математичних методів для розв'язання нечітких матричних ігор великої розмірності.
+
+\clearpage
+\begin{thebibliography}{05}
+\addcontentsline{toc}{section}{\refname}
+{\small
+
+\bibitem{Mulen} Мулен~Э. Теория игр с примерами из математической экономики. — М., 1985;
+
+\bibitem{Orl} Орловский~С.~А. Проблемы принятия решения при нечеткой исходной информации. — М., 1981;
+
+\bibitem{Larbani} Larbani, M.: Non cooperative fuzzy games in normal form: A survey.
+
+\bibitem{N18} Shiang-Tai L., Chiang K.: Solution of Fuzzy Matrix Games: An Application of the Extension Principle
+
+\bibitem{Cite3} J. Koshal, A. Nedic, and U. V. Shanbhag, “Distributed algorithms for aggregative games on graphs,” Operations Research, vol. 64, no. 3, pp. 680–704, 2016.
+
+\bibitem{Owen} Owen, G. (1974). Cooperative games using fuzzy sets. Theory and Decision, 4(4), 307-312.
+
+\bibitem{Butnariu} Butnariu, D. (1978). Game theory and fuzzy sets. BUSEFAL, 1(1), 139-151.
+
+\bibitem{Buckley} Buckley, J.J. (1986). Fuzzy hierarchical analysis. Fuzzy Sets and Systems, 17(3), 233-247.
+
+\bibitem{Arfi} Arfi, B. (2009). Linguistic fuzzy-logic games: Modeling social interactions in social sciences. Journal of Economic Interaction and Coordination, 4(1), 1-20.
+
+\bibitem{Shapley} Shapley, L. S. (1953). A value for n-person games. Annals of Mathematics, 28(1), 307-317.
+
+\bibitem{Nash} Nash, J. F. (1950). Equilibrium points in n-person games. Proceedings of the National Academy of Sciences, 36(1), 48-49.
+
+\bibitem{Binmore} Binmore, K. (2007). Game theory: A very short introduction. Oxford, England: Oxford University Press.
+
+\bibitem{Article1} C.~De~Persis, S.~Grammatico <<Continuous-time integral dynamics for aggregative game equilibrium seeking>> [Електронний ресурс]: arXiv preprint arXiv:1803.10448v1, 2018
+
+URL: \url{https://arxiv.org/pdf/1803.10448.pdf}
+
+\bibitem{Cite1} R.~Zhu, J.~Zhang, K.~You, and T.~Basar, “Asynchronous networked
+aggregative games” [Електронний ресурс]: arXiv preprint arXiv:2101.08973, 2021.
+
+URL: \url{https://arxiv.org/pdf/2101.08973.pdf}
+
+\bibitem{Article2} R.~Zhu, J~Zhang and K~You <<Networked Aggregative Games with Linear Convergence>> [Електронний ресурс]: arXiv preprint arXiv:2105.05465v1, 2021
+
+URL: \url{https://arxiv.org/pdf/2105.05465.pdf}
+}
+\end{thebibliography}
+
+%\appendix
+
+\lstset{language=Java, breaklines=true, breakatwhitespace=true, basicstyle=\small\ttfamily, numbers=left, stepnumber=1, numbersep=10pt, frame=single}
+
+
+\section*{ДОДАТОК А}
+\addcontentsline{toc}{section}{ДОДАТОК А}
+\label{Додаток А}
+У цьому проєкті були використані такі технології, як Java та бібліотека Apache Commons Math для оптимізації та розв’язування задач лінійного програмування з нечіткими числами.
+
+Посилання на GitHub: 
+\href{https://github.com/PivDen2000/Fuzzy-games
+}{https://github.com/PivDen2000/Fuzzy-games}
+
+\begin{lstlisting}[caption=input.txt]
+a=11
+n=4
+m=4
+[26,27,28,30], [-10], [-20], [-3,0,3]
+[-28], [20], [-10], [32,34,35,37]
+[-27,-25,-22], [10,11,12,14], [20], [-30]
+[30], [-38,-36,-35,-34], [-34,-32,-30], [32,33,34,36]
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=java, caption=output.txt]
+0,0000	0,1000	0,2000	0,3000	0,4000	0,5000	0,6000	0,7000	0,8000	0,9000	1,0000
+-1,5959	-1,7009	-1,8058	-1,9105	-2,0151	-2,1196	-2,2240	-2,3283	-2,4325	-2,5365	-2,6405
+-3,6105	-3,5317	-3,4530	-3,3742	-3,2953	-3,2164	-3,1375	-3,0585	-2,9795	-2,9005	-2,8213
+\end{lstlisting}
+
+\begin{lstlisting}[language=java, caption=Main.java]
+
+import java.io.IOException;
+import java.nio.file.Paths;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            var inputOutputFolder = Paths.get("./input_output/");
+            var inputPath = inputOutputFolder.resolve("input.txt");
+            var outputPath = inputOutputFolder.resolve("output.txt");
+
+            var numCuts = FuzzyReader.readNumCuts(inputPath);
+            var matrix = FuzzyReader.readMatrix(inputPath);
+            var result = FuzzySolver.calcAlphaCutsFuzzyValue(matrix, numCuts);
+            FuzzyWriter.writeResult(result, outputPath.toString());
+            FuzzyDrawer.draw(result, outputImage.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=java, caption=FuzzyNumber.java]
+
+import java.util.Arrays;
+
+public class FuzzyNumber {
+    public Double[] arr;
+
+    public FuzzyNumber(Double[] arr) {
+        this.arr = arr;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(arr);
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=java, caption=FuzzyReader.java]
+
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.stream.Stream;
+
+public class FuzzyReader {
+    public static int readNumCuts(Path inputPath) throws IOException {
+        return readVar(inputPath, 'a');
+    }
+
+    private static int readVar(Path inputPath, char var) throws IOException {
+        try (Stream<String> lines = Files.lines(inputPath, Charset.defaultCharset())) {
+            return lines.filter(line -> line.startsWith(var + "="))
+                    .map(line -> line.substring(2))
+                    .findFirst()
+                    .map(Integer::parseInt)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid input file: cannot find '" + var + "='"));
+        }
+    }
+
+
+    public static FuzzyNumber[][] readMatrix(Path inputPath) throws IOException {
+        var m = readVar(inputPath, 'm');
+        var n = readVar(inputPath, 'n');
+        var matrix = new FuzzyNumber[m][n];
+
+        var input = Files.readString(inputPath, Charset.defaultCharset());
+        var lines = Arrays.stream(input.split("\r\n"))
+                .filter(line -> !line.isEmpty())
+                .toArray(String[]::new);
+
+        for (int i = 3; i < m + 3; i++) {
+            var values = lines[i].replaceAll("\\s+", "").split(",\\[");
+            for (int j = 0; j < n; j++) {
+                var value = values[j].replaceAll("[\\[\\]]", "");
+                var fuzzyValues = value.split(",");
+                var numbers = new Double[fuzzyValues.length];
+                for (int k = 0; k < fuzzyValues.length; k++) {
+                    numbers[k] = Double.parseDouble(fuzzyValues[k]);
+                }
+                Arrays.sort(numbers);
+                matrix[i - 3][j] = new FuzzyNumber(numbers);
+            }
+        }
+        return matrix;
+    }
+}
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=java, caption=FuzzySolver.java]
+
+import org.apache.commons.math3.linear.MatrixUtils;
+import org.apache.commons.math3.optim.MaxIter;
+import org.apache.commons.math3.optim.linear.*;
+import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+public class FuzzySolver {
+    public static Double[][] calcAlphaCutsFuzzyValue(FuzzyNumber[][] matrix, int numCuts) {
+        var cuts = IntStream.range(0, numCuts)
+                .mapToDouble(i -> i * 1.0 / (numCuts - 1))
+                .boxed()
+                .toArray(Double[]::new);
+
+        return new Double[][]{
+                cuts,
+                Arrays.stream(cuts)
+                        .map(cut -> solve(fuzzyToNum(matrix, cut, true), false))
+                        .toArray(Double[]::new),
+                Arrays.stream(cuts)
+                        .map(cut -> solve(fuzzyToNum(matrix, cut, false), true))
+                        .toArray(Double[]::new)
+        };
+    }
+
+    private static double[][] fuzzyToNum(FuzzyNumber[][] matrix, double cut, boolean isMax) {
+        var result = new double[matrix.length][matrix[0].length];
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                var values = matrix[i][j].arr;
+
+                if (values.length == 1) {
+                    result[i][j] = values[0];
+                    continue;
+                }
+
+                var max = values[values.length - 1];
+                var min = values[0];
+                var mid = Arrays.copyOfRange(values, 1, values.length - 1);
+
+                var maxCutValue = max - cut * (max - mid[mid.length - 1]);
+                var minCutValue = min + cut * (mid[0] - min);
+
+                result[i][j] = isMax ? maxCutValue : minCutValue;
+            }
+        }
+
+        return result;
+    }
+
+    public static Double solve(double[][] matrix, boolean isMax) {
+        var m = matrix.length;
+        var n = matrix[0].length;
+
+        var c = new double[n + 1];
+        c[n] = 1;
+        LinearObjectiveFunction f = new LinearObjectiveFunction(c, 0);
+
+        if (isMax) {
+            matrix = MatrixUtils.createRealMatrix(matrix)
+            .transpose()
+            .getData();
+        }
+
+        var A = new double[2 * m + 1][n + 1];
+        for (int i = 0; i < m; i++) {
+            System.arraycopy(matrix[i], 0, A[i], 0, n);
+            A[i][n] = -1;
+        }
+        Arrays.fill(A[m], 1);
+        A[m][n] = 0;
+        Arrays.fill(A, m + 1, A.length,
+                IntStream.range(0, m)
+                        .mapToDouble(i -> i == m - 1 ? 1 : 0)
+                        .toArray());
+
+        var b = new int[2 * m + 1];
+        b[m] = 1;
+
+        Relationship[] r = new Relationship[2 * m + 1];
+        Arrays.fill(r, m + 1, 2 * m + 1, Relationship.GEQ);
+        r[m] = Relationship.EQ;
+        Arrays.fill(r, 0, m, isMax ? Relationship.GEQ : Relationship.LEQ);
+
+        var constraints = new ArrayList<LinearConstraint>();
+        for (int i = 0; i < A.length; i++) {
+            constraints.add(new LinearConstraint(A[i], r[i], b[i]));
+        }
+
+        var solver = new SimplexSolver();
+        var optSolution = solver.optimize(new MaxIter(100), f, new LinearConstraintSet(constraints),
+                isMax ? GoalType.MAXIMIZE : GoalType.MINIMIZE, new NonNegativeConstraint(false));
+
+        return optSolution.getValue();
+    }
+}
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=java, caption=FuzzyWriter.java]
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+
+public class FuzzyWriter {
+    public static void writeResult(Double[][] matrix, String fileName) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            for (var row : matrix) {
+                writer.write(String.join("\t", Arrays.stream(row)
+                        .map(val -> String.format("%.4f", val))
+                        .toArray(String[]::new)));
+                writer.newLine();
+            }
+            System.out.println("Matrix has been written to file.");
+        } catch (IOException e) {
+            System.err.println("Error writing matrix to file: " + e.getMessage());
+        }
+    }
+}
+
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=java, caption=FuzzyDrawer.java]
+
+public class FuzzyDrawer {
+
+    public record Point(double x, double y, int intX, int intY) {
+    }
+
+    public static void draw(Double[][] matrix, String path) {
+
+        final int width = 400;
+        final int height = 400;
+
+        double zero = 0.0;
+        double min = Double.POSITIVE_INFINITY;
+        double max = Double.NEGATIVE_INFINITY;
+
+        var data = new Double[matrix.length][matrix[0].length];
+        for (int i = 0; i < matrix.length; i++) {
+            System.arraycopy(matrix[i], 0, data[i], 0, matrix[i].length);
+        }
+
+        for (int i = 1; i < data.length; i++) {
+            for (var value : data[i]) {
+                min = Math.min(min, value);
+                max = Math.max(max, value);
+            }
+        }
+
+        min = Math.min(min, zero);
+        max = Math.max(max, zero);
+        zero = (zero - min) / (max - min);
+
+        for (int i = 1; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                data[i][j] = (data[i][j] - min) / (max - min);
+            }
+        }
+
+        var minX = (int) (0.125 * width);
+        var minY = (int) (0.875 * height);
+        var maxX = (int) (0.875 * width);
+        var maxY = (int) (0.125 * height);
+        var zeroX = (int) ((0.125 + zero * 0.75) * width);
+        var zeroY = (int) (0.875 * height);
+
+        var points = new ArrayList<Point>();
+
+        StringBuilder polygon = new StringBuilder("<polygon points=\"");
+        for (int i = 0; i < data[0].length; i++) {
+            points.add(new Point(matrix[1][i], matrix[0][i],
+                    (int) (minX + data[1][i] * (maxX - minX)),
+                    (int) (minY + data[0][i] * (maxY - minY))));
+        }
+        for (int i = data[0].length - 1; i >= 0; i--) {
+            points.add(new Point(matrix[2][i], matrix[0][i],
+                    (int) (minX + data[2][i] * (maxX - minX)),
+                    (int) (minY + data[0][i] * (maxY - minY))));
+        }
+        points.forEach(point -> polygon.append(point.intX)
+        .append(",").append(point.intY).append(" "));
+        polygon.append("\" fill=\"none\" stroke=\"black\" />");
+
+        points.add(new Point(0.0, 0.0, zeroX, zeroY));
+        points.add(new Point(max, 0.0, maxX, minY));
+        points.add(new Point(max, 1.0, maxX, maxY));
+
+        StringBuilder svgContent = new StringBuilder("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"" + width + "\" height=\"" + height + "\">"
+                + "<line x1=\"0\" y1=\"" + zeroY + "\" x2=\"" + width + "\" y2=\"" + zeroY + "\" stroke=\"black\" />"
+                + "<line x1=\"" + zeroX + "\" y1=\"0\" x2=\"" + zeroX + "\" y2=\"" + height + "\" stroke=\"black\" />");
+
+        points.forEach(point -> svgContent
+                .append("<text x=\"").append(point.intX + 3)
+                .append("\" y=\"").append(point.intY - 3)
+                .append("\" font-family=\"Arial\" font-size=\"3\" fill=\"black\">(");
+        svgContent.append(polygon).append("</svg>");
+
+        try (Writer writer = new FileWriter(path)) {
+            writer.write(svgContent.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+\end{lstlisting}
+
+
+
+\end{document}
