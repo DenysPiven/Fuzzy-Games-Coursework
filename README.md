@@ -1,5 +1,7 @@
 # Fuzzy-games
 
+**Coursework (2023):** "Applying the Generalization Principle to Solve Fuzzy Matrix Games", 1st year of the master's program (group SMPR-1), Taras Shevchenko National University of Kyiv, Faculty of Computer Science and Cybernetics. Author: Denys Piven. Continued in the master's thesis [Fuzzy-Games-with-Fuzzy-Strategies](https://github.com/DenysPiven/Fuzzy-Games-with-Fuzzy-Strategies) (2024).
+
 This project focuses on applying the generalization principle to solve fuzzy matrix games using Java implementation. The primary objective is to solve linear programming problems with fuzzy numbers. To accomplish this, we have utilized the optimization capabilities of the Apache Commons Math library.
 
 ### Research Materials
