@@ -1,13 +1,11 @@
 # Fuzzy-games
 
-**Coursework (2023):** "Applying the Generalization Principle to Solve Fuzzy Matrix Games", 1st year of the master's program (group SMPR-1), Taras Shevchenko National University of Kyiv, Faculty of Computer Science and Cybernetics. Author: Denys Piven. Continued in the master's thesis [Fuzzy-Games-with-Fuzzy-Strategies](https://github.com/DenysPiven/Fuzzy-Games-with-Fuzzy-Strategies) (2024).
+**Coursework (2023):** "Applying the Generalization Principle to Solve Fuzzy Matrix Games", 1st year of the master's program (group SMPR-1), Taras Shevchenko National University of Kyiv, Faculty of Computer Science and Cybernetics. Author: Denys Piven. Supervisor: Prof. Serhii Mashchenko, Dr. Sc. (Phys.-Math.). The coursework text (Ukrainian) is in [`thesis/`](thesis/Applying_the_Generalization_Principle_to_Solve_Fuzzy_Matrix_Games.pdf). Continued in the master's thesis [Fuzzy-Games-with-Fuzzy-Strategies](https://github.com/DenysPiven/Fuzzy-Games-with-Fuzzy-Strategies) (2024).
 
 This project focuses on applying the generalization principle to solve fuzzy matrix games using Java implementation. The primary objective is to solve linear programming problems with fuzzy numbers. To accomplish this, we have utilized the optimization capabilities of the Apache Commons Math library.
 
 ### Research Materials
 The materials folder contains a collection of research papers and articles related to fuzzy matrix games with fuzzy numbers. These resources provide valuable insights into the theoretical foundations of the Fuzzy-games project and can help you deepen your understanding of the field.
-
-In addition to research papers, the folder also include example of course work completed by me from the Faculty of Computer Science and Cybernetics at Taras Shevchenko National University of Kyiv. These course work offer practical applications of the Fuzzy-games project and can serve as a source of inspiration for further development.
 
 ### Prerequisites
 - Java 20
